@@ -54,7 +54,7 @@ module D5M_Subsystem_Video_In (
  *                           Parameter Declarations                          *
  *****************************************************************************/
 
-parameter IW		= 9;
+parameter IW		= 11;
 
 parameter OW		= 7;
 parameter FW		= 9;
@@ -178,7 +178,7 @@ altera_up_video_camera_decoder Camera_Decoder (
 	.clk				(video_clk),
 	.reset			(video_clk_reset),
 
-	.PIXEL_DATA		(PIXEL_DATA[ 9: 2]),
+	.PIXEL_DATA		(PIXEL_DATA[11: 4]),
 	.LINE_VALID		(LINE_VALID),
 	.FRAME_VALID	(FRAME_VALID),
 

@@ -132,7 +132,7 @@ module Computer_System (
 		input  wire        video_in_LINE_VALID,             //                     .LINE_VALID
 		input  wire        video_in_FRAME_VALID,            //                     .FRAME_VALID
 		input  wire        video_in_pixel_clk_reset,        //                     .pixel_clk_reset
-		input  wire [9:0]  video_in_PIXEL_DATA              //                     .PIXEL_DATA
+		input  wire [11:0] video_in_PIXEL_DATA              //                     .PIXEL_DATA
 	);
 
 	wire          system_pll_sys_clk_clk;                                                            // System_PLL:sys_clk_clk -> [ADC:clock, ARM_A9_HPS:f2h_axi_clk, ARM_A9_HPS:h2f_axi_clk, ARM_A9_HPS:h2f_lw_axi_clk, AV_Config:clk, Audio_Subsystem:sys_clk_clk, D5M_Subsystem:sys_clk_clk, Expansion_JP1:clk, F2H_Mem_Window_00000000:clk, F2H_Mem_Window_FF600000:clk, F2H_Mem_Window_FF800000:clk, HEX3_HEX0:clk, HEX5_HEX4:clk, Interval_Timer:clk, Interval_Timer_2:clk, Interval_Timer_2nd_Core:clk, Interval_Timer_2nd_Core_2:clk, IrDA:clk, JTAG_UART:clk, JTAG_UART_2nd_Core:clk, JTAG_UART_for_ARM_0:clk, JTAG_UART_for_ARM_1:clk, JTAG_to_FPGA_Bridge:clk_clk, JTAG_to_HPS_Bridge:clk_clk, LEDs:clk, Nios2:clk, Nios2_2nd_Core:clk, Onchip_SRAM:clk, PS2_Port:clk, PS2_Port_Dual:clk, Pixel_DMA_Addr_Translation:clk, Pushbuttons:clk, SDRAM:clk, Slider_Switches:clk, SysID:clock, VGA_Subsystem:sys_clk_clk, Video_In_DMA_Addr_Translation:clk, irq_mapper_002:clk, irq_mapper_003:clk, mm_interconnect_0:System_PLL_sys_clk_clk, mm_interconnect_1:System_PLL_sys_clk_clk, rst_controller:clk, rst_controller_003:clk, rst_controller_006:clk, rst_controller_007:clk, rst_controller_009:clk]

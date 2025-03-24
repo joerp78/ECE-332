@@ -57,9 +57,9 @@ module Computer_System_D5M_Subsystem_Bayer_Resampler (
  *                           Parameter Declarations                          *
  *****************************************************************************/
 
-parameter WW		= 10;
+parameter WW		= 11;
 
-parameter IMAGE_WIDTH	= 1280;
+parameter IMAGE_WIDTH	= 2592;
 
 /*****************************************************************************
  *                             Port Declarations                             *

@@ -20,7 +20,7 @@ module Computer_System_D5M_Subsystem (
 		input  wire        video_in_LINE_VALID,                   //                           .LINE_VALID
 		input  wire        video_in_FRAME_VALID,                  //                           .FRAME_VALID
 		input  wire        video_in_pixel_clk_reset,              //                           .pixel_clk_reset
-		input  wire [9:0]  video_in_PIXEL_DATA,                   //                           .PIXEL_DATA
+		input  wire [11:0] video_in_PIXEL_DATA,                   //                           .PIXEL_DATA
 		input  wire [1:0]  video_in_dma_control_slave_address,    // video_in_dma_control_slave.address
 		input  wire [3:0]  video_in_dma_control_slave_byteenable, //                           .byteenable
 		input  wire        video_in_dma_control_slave_read,       //                           .read

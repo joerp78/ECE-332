@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <deploy
- date="2025.03.07.15:45:44"
- outputDirectory="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/">
+ date="2025.03.24.12:26:30"
+ outputDirectory="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/">
  <perimeter>
   <parameter
      name="AUTO_GENERATION_ID"
@@ -194,7 +194,7 @@
        name="video_in_PIXEL_DATA"
        direction="input"
        role="PIXEL_DATA"
-       width="10" />
+       width="12" />
   </interface>
   <interface name="video_in_dma_control_slave" kind="avalon" start="0">
    <property name="addressAlignment" value="DYNAMIC" />
@@ -320,13 +320,13 @@
  </perimeter>
  <entity
    path=""
-   parameterizationKey="D5M_Subsystem:1.0:AUTO_DEVICE=5CSEMA5F31C6,AUTO_DEVICE_FAMILY=Cyclone V,AUTO_DEVICE_SPEEDGRADE=6,AUTO_GENERATION_ID=1741380342,AUTO_SYS_CLK_CLOCK_DOMAIN=-1,AUTO_SYS_CLK_CLOCK_RATE=-1,AUTO_SYS_CLK_RESET_DOMAIN=-1,AUTO_UNIQUE_ID=,AUTO_VIDEO_IN_DMA_MASTER_ADDRESS_MAP=,AUTO_VIDEO_IN_DMA_MASTER_ADDRESS_WIDTH=AddressWidth = -1(altera_up_avalon_video_bayer_resampler:18.0:AUTO_CLK_CLOCK_RATE=0,AUTO_DEVICE_FAMILY=Cyclone V,custom_height_in=1944,custom_width_in=2592,device=5MP daughtercard (THDB_D5M),height_in=1024,use_custom_format=true,width_in=1280)(altera_up_avalon_audio_and_video_config:18.0:AUTO_CLK_CLOCK_RATE=0,AUTO_DEVICE_FAMILY=Cyclone V,audio_in=Microphone to ADC,bit_length=24,board=DE1-SoC,bosr=250fs/256fs,d5m_resolution=2592 x 1944,dac_enable=true,data_format=Left Justified,device=5 Megapixel Camera (TRDB_D5M),eai=true,exposure=true,line_in_bypass=false,mic_attenuation=-6dB,mic_bypass=false,sampling_rate=48 kHz,sr_register=0,video_format=NTSC)(clock_source:18.1:clockFrequency=50000000,clockFrequencyKnown=false,inputClockFrequency=0,resetSynchronousEdges=NONE)(altera_up_avalon_video_decoder:18.0:AUTO_CLK_CLOCK_RATE=0,AUTO_DEVICE_FAMILY=Cyclone V,video_source=5MP Daughtercard (THDB_D5M))(altera_up_avalon_video_clipper:18.0:AUTO_CLK_CLOCK_RATE=0,AUTO_DEVICE_FAMILY=Cyclone V,add_bottom=0,add_left=0,add_right=0,add_top=0,add_value_plane_1=0,add_value_plane_2=0,add_value_plane_3=0,add_value_plane_4=0,color_bits=16,color_planes=1,drop_bottom=6,drop_left=8,drop_right=8,drop_top=6,height_in=972,width_in=1296)(altera_up_avalon_video_dma_controller:18.0:AUTO_CLK_CLOCK_RATE=0,AUTO_DEVICE_FAMILY=Cyclone V,addr_mode=X-Y,back_start_address=134217728,color_bits=16,color_planes=1,dma_enabled=false,height=240,mode=From Stream to Memory,start_address=134217728,width=320)(altera_up_avalon_video_rgb_resampler:18.0:AUTO_CLK_CLOCK_RATE=0,AUTO_DEVICE_FAMILY=Cyclone V,alpha=1023,input_bits=8,input_planes=3,input_type=24-bit RGB,output_bits=16,output_planes=1,output_type=16-bit RGB)(altera_up_avalon_video_scaler:18.0:AUTO_CLK_CLOCK_RATE=0,AUTO_DEVICE_FAMILY=Cyclone V,channel_size=0,color_bits=16,color_planes=1,height_in=960,height_out=240,height_scaling=0.25,include_channel=false,width_in=1280,width_out=320,width_scaling=0.25)(avalon_streaming:18.1:)(avalon_streaming:18.1:)(avalon_streaming:18.1:)(avalon_streaming:18.1:)(avalon_streaming:18.1:)(clock:18.1:)(clock:18.1:)(clock:18.1:)(clock:18.1:)(clock:18.1:)(clock:18.1:)(clock:18.1:)(reset:18.1:)(reset:18.1:)(reset:18.1:)(reset:18.1:)(reset:18.1:)(reset:18.1:)(reset:18.1:)"
+   parameterizationKey="D5M_Subsystem:1.0:AUTO_DEVICE=5CSEMA5F31C6,AUTO_DEVICE_FAMILY=Cyclone V,AUTO_DEVICE_SPEEDGRADE=6,AUTO_GENERATION_ID=1742833588,AUTO_SYS_CLK_CLOCK_DOMAIN=-1,AUTO_SYS_CLK_CLOCK_RATE=-1,AUTO_SYS_CLK_RESET_DOMAIN=-1,AUTO_UNIQUE_ID=,AUTO_VIDEO_IN_DMA_MASTER_ADDRESS_MAP=,AUTO_VIDEO_IN_DMA_MASTER_ADDRESS_WIDTH=AddressWidth = -1(altera_up_avalon_video_bayer_resampler:18.0:AUTO_CLK_CLOCK_RATE=0,AUTO_DEVICE_FAMILY=Cyclone V,custom_height_in=1944,custom_width_in=2592,device=5MP Digital Camera (THDB_D5M),height_in=1944,use_custom_format=true,width_in=2592)(altera_up_avalon_audio_and_video_config:18.0:AUTO_CLK_CLOCK_RATE=0,AUTO_DEVICE_FAMILY=Cyclone V,audio_in=Microphone to ADC,bit_length=24,board=DE1-SoC,bosr=250fs/256fs,d5m_resolution=2592 x 1944,dac_enable=true,data_format=Left Justified,device=5 Megapixel Camera (TRDB_D5M),eai=true,exposure=true,line_in_bypass=false,mic_attenuation=-6dB,mic_bypass=false,sampling_rate=48 kHz,sr_register=0,video_format=NTSC)(clock_source:18.1:clockFrequency=50000000,clockFrequencyKnown=false,inputClockFrequency=0,resetSynchronousEdges=NONE)(altera_up_avalon_video_decoder:18.0:AUTO_CLK_CLOCK_RATE=0,AUTO_DEVICE_FAMILY=Cyclone V,video_source=5MP Digital Camera (THDB_D5M))(altera_up_avalon_video_clipper:18.0:AUTO_CLK_CLOCK_RATE=0,AUTO_DEVICE_FAMILY=Cyclone V,add_bottom=0,add_left=0,add_right=0,add_top=0,add_value_plane_1=0,add_value_plane_2=0,add_value_plane_3=0,add_value_plane_4=0,color_bits=16,color_planes=1,drop_bottom=6,drop_left=8,drop_right=8,drop_top=6,height_in=972,width_in=1296)(altera_up_avalon_video_dma_controller:18.0:AUTO_CLK_CLOCK_RATE=0,AUTO_DEVICE_FAMILY=Cyclone V,addr_mode=X-Y,back_start_address=134217728,color_bits=16,color_planes=1,dma_enabled=false,height=240,mode=From Stream to Memory,start_address=134217728,width=320)(altera_up_avalon_video_rgb_resampler:18.0:AUTO_CLK_CLOCK_RATE=0,AUTO_DEVICE_FAMILY=Cyclone V,alpha=1023,input_bits=8,input_planes=3,input_type=24-bit RGB,output_bits=16,output_planes=1,output_type=16-bit RGB)(altera_up_avalon_video_scaler:18.0:AUTO_CLK_CLOCK_RATE=0,AUTO_DEVICE_FAMILY=Cyclone V,channel_size=0,color_bits=16,color_planes=1,height_in=960,height_out=240,height_scaling=0.25,include_channel=false,width_in=1280,width_out=320,width_scaling=0.25)(avalon_streaming:18.1:)(avalon_streaming:18.1:)(avalon_streaming:18.1:)(avalon_streaming:18.1:)(avalon_streaming:18.1:)(clock:18.1:)(clock:18.1:)(clock:18.1:)(clock:18.1:)(clock:18.1:)(clock:18.1:)(clock:18.1:)(reset:18.1:)(reset:18.1:)(reset:18.1:)(reset:18.1:)(reset:18.1:)(reset:18.1:)(reset:18.1:)"
    instancePathKey="D5M_Subsystem"
    kind="D5M_Subsystem"
    version="1.0"
    name="D5M_Subsystem">
   <parameter name="AUTO_SYS_CLK_RESET_DOMAIN" value="-1" />
-  <parameter name="AUTO_GENERATION_ID" value="1741380342" />
+  <parameter name="AUTO_GENERATION_ID" value="1742833588" />
   <parameter name="AUTO_DEVICE" value="5CSEMA5F31C6" />
   <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone V" />
   <parameter
@@ -339,128 +339,128 @@
   <parameter name="AUTO_DEVICE_SPEEDGRADE" value="6" />
   <generatedFiles>
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/D5M_Subsystem.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/D5M_Subsystem.v"
        type="VERILOG" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/D5M_Subsystem_Bayer_Resampler.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/D5M_Subsystem_Bayer_Resampler.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_av_config_serial_bus_controller.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_av_config_serial_bus_controller.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_slow_clock_generator.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_slow_clock_generator.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_dc2.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_dc2.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_d5m.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_d5m.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_lcm.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_lcm.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_ltm.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_ltm.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_ob_de1_soc.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_ob_de1_soc.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_ob_de2_115.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_ob_de2_115.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_ob_de2i_150.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_ob_de2i_150.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_ob_de10_standard.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_ob_de10_standard.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_ob_audio.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_ob_audio.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_ob_adv7180.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_ob_adv7180.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_ob_adv7181.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_ob_adv7181.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/D5M_Subsystem_D5M_Config.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/D5M_Subsystem_D5M_Config.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_video_itu_656_decoder.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_video_itu_656_decoder.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_video_decoder_add_endofpacket.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_video_decoder_add_endofpacket.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_video_camera_decoder.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_video_camera_decoder.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_video_dual_clock_fifo.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_video_dual_clock_fifo.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/D5M_Subsystem_Video_In.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/D5M_Subsystem_Video_In.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_video_clipper_add.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_video_clipper_add.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_video_clipper_drop.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_video_clipper_drop.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_video_clipper_counters.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_video_clipper_counters.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/D5M_Subsystem_Video_In_Clipper.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/D5M_Subsystem_Video_In_Clipper.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_video_dma_control_slave.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_video_dma_control_slave.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_video_dma_to_memory.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_video_dma_to_memory.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_video_dma_to_stream.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_video_dma_to_stream.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/D5M_Subsystem_Video_In_DMA.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/D5M_Subsystem_Video_In_DMA.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/D5M_Subsystem_Video_In_RGB_Resampler.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/D5M_Subsystem_Video_In_RGB_Resampler.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_video_scaler_shrink.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_video_scaler_shrink.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_video_scaler_multiply_width.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_video_scaler_multiply_width.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_video_scaler_multiply_height.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_video_scaler_multiply_height.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/D5M_Subsystem_Video_In_Scaler.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/D5M_Subsystem_Video_In_Scaler.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_reset_controller.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_reset_controller.v"
        type="VERILOG"
        attributes="" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_reset_synchronizer.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_reset_synchronizer.v"
        type="VERILOG"
        attributes="" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_reset_controller.sdc"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_reset_controller.sdc"
        type="SDC"
        attributes="" />
   </childGeneratedFiles>
   <sourceFiles>
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/Lab2_ECE332_2021/Lab2_ECE332_2021/verilog/D5M_Subsystem.qsys" />
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/Lab2_ECE332_2021/Lab2_ECE332_2021/verilog/D5M_Subsystem.qsys" />
   </sourceFiles>
   <childSourceFiles>
    <file
@@ -587,7 +587,7 @@
  </entity>
  <entity
    path="submodules/"
-   parameterizationKey="altera_up_avalon_video_bayer_resampler:18.0:AUTO_CLK_CLOCK_RATE=0,AUTO_DEVICE_FAMILY=Cyclone V,custom_height_in=1944,custom_width_in=2592,device=5MP daughtercard (THDB_D5M),height_in=1024,use_custom_format=true,width_in=1280"
+   parameterizationKey="altera_up_avalon_video_bayer_resampler:18.0:AUTO_CLK_CLOCK_RATE=0,AUTO_DEVICE_FAMILY=Cyclone V,custom_height_in=1944,custom_width_in=2592,device=5MP Digital Camera (THDB_D5M),height_in=1944,use_custom_format=true,width_in=2592"
    instancePathKey="D5M_Subsystem:.:Bayer_Resampler"
    kind="altera_up_avalon_video_bayer_resampler"
    version="18.0"
@@ -596,13 +596,13 @@
   <parameter name="custom_height_in" value="1944" />
   <parameter name="custom_width_in" value="2592" />
   <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone V" />
-  <parameter name="height_in" value="1024" />
-  <parameter name="width_in" value="1280" />
-  <parameter name="device" value="5MP daughtercard (THDB_D5M)" />
+  <parameter name="height_in" value="1944" />
+  <parameter name="width_in" value="2592" />
+  <parameter name="device" value="5MP Digital Camera (THDB_D5M)" />
   <parameter name="use_custom_format" value="true" />
   <generatedFiles>
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/D5M_Subsystem_Bayer_Resampler.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/D5M_Subsystem_Bayer_Resampler.v"
        type="VERILOG" />
   </generatedFiles>
   <childGeneratedFiles/>
@@ -645,49 +645,49 @@
   <parameter name="board" value="DE1-SoC" />
   <generatedFiles>
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_av_config_serial_bus_controller.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_av_config_serial_bus_controller.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_slow_clock_generator.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_slow_clock_generator.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_dc2.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_dc2.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_d5m.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_d5m.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_lcm.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_lcm.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_ltm.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_ltm.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_ob_de1_soc.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_ob_de1_soc.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_ob_de2_115.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_ob_de2_115.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_ob_de2i_150.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_ob_de2i_150.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_ob_de10_standard.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_ob_de10_standard.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_ob_audio.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_ob_audio.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_ob_adv7180.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_ob_adv7180.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_ob_adv7181.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_av_config_auto_init_ob_adv7181.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/D5M_Subsystem_D5M_Config.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/D5M_Subsystem_D5M_Config.v"
        type="VERILOG" />
   </generatedFiles>
   <childGeneratedFiles/>
@@ -733,29 +733,29 @@
  </entity>
  <entity
    path="submodules/"
-   parameterizationKey="altera_up_avalon_video_decoder:18.0:AUTO_CLK_CLOCK_RATE=0,AUTO_DEVICE_FAMILY=Cyclone V,video_source=5MP Daughtercard (THDB_D5M)"
+   parameterizationKey="altera_up_avalon_video_decoder:18.0:AUTO_CLK_CLOCK_RATE=0,AUTO_DEVICE_FAMILY=Cyclone V,video_source=5MP Digital Camera (THDB_D5M)"
    instancePathKey="D5M_Subsystem:.:Video_In"
    kind="altera_up_avalon_video_decoder"
    version="18.0"
    name="D5M_Subsystem_Video_In">
   <parameter name="AUTO_CLK_CLOCK_RATE" value="0" />
   <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone V" />
-  <parameter name="video_source" value="5MP Daughtercard (THDB_D5M)" />
+  <parameter name="video_source" value="5MP Digital Camera (THDB_D5M)" />
   <generatedFiles>
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_video_itu_656_decoder.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_video_itu_656_decoder.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_video_decoder_add_endofpacket.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_video_decoder_add_endofpacket.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_video_camera_decoder.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_video_camera_decoder.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_video_dual_clock_fifo.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_video_dual_clock_fifo.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/D5M_Subsystem_Video_In.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/D5M_Subsystem_Video_In.v"
        type="VERILOG" />
   </generatedFiles>
   <childGeneratedFiles/>
@@ -806,16 +806,16 @@
   <parameter name="add_value_plane_3" value="0" />
   <generatedFiles>
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_video_clipper_add.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_video_clipper_add.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_video_clipper_drop.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_video_clipper_drop.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_video_clipper_counters.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_video_clipper_counters.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/D5M_Subsystem_Video_In_Clipper.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/D5M_Subsystem_Video_In_Clipper.v"
        type="VERILOG" />
   </generatedFiles>
   <childGeneratedFiles/>
@@ -857,16 +857,16 @@
   <parameter name="height" value="240" />
   <generatedFiles>
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_video_dma_control_slave.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_video_dma_control_slave.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_video_dma_to_memory.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_video_dma_to_memory.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_video_dma_to_stream.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_video_dma_to_stream.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/D5M_Subsystem_Video_In_DMA.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/D5M_Subsystem_Video_In_DMA.v"
        type="VERILOG" />
   </generatedFiles>
   <childGeneratedFiles/>
@@ -906,7 +906,7 @@
   <parameter name="input_planes" value="3" />
   <generatedFiles>
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/D5M_Subsystem_Video_In_RGB_Resampler.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/D5M_Subsystem_Video_In_RGB_Resampler.v"
        type="VERILOG" />
   </generatedFiles>
   <childGeneratedFiles/>
@@ -943,16 +943,16 @@
   <parameter name="height_out" value="240" />
   <generatedFiles>
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_video_scaler_shrink.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_video_scaler_shrink.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_video_scaler_multiply_width.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_video_scaler_multiply_width.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_up_video_scaler_multiply_height.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_up_video_scaler_multiply_height.v"
        type="VERILOG" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/D5M_Subsystem_Video_In_Scaler.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/D5M_Subsystem_Video_In_Scaler.v"
        type="VERILOG" />
   </generatedFiles>
   <childGeneratedFiles/>
@@ -983,15 +983,15 @@
    name="altera_reset_controller">
   <generatedFiles>
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_reset_controller.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_reset_controller.v"
        type="VERILOG"
        attributes="" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_reset_synchronizer.v"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_reset_synchronizer.v"
        type="VERILOG"
        attributes="" />
    <file
-       path="C:/intelFPGA_lite/18.1/ECE 3/db/ip/D5M_Subsystem/submodules/altera_reset_controller.sdc"
+       path="C:/Users/jpaola/Documents/GitHub/ECE-322/Lab2/db/ip/D5M_Subsystem/submodules/altera_reset_controller.sdc"
        type="SDC"
        attributes="" />
   </generatedFiles>

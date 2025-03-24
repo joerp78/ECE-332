@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <time.h>
 
+
 #define KEY_BASE              0xFF200050
 #define VIDEO_IN_BASE         0xFF203060
 #define FPGA_ONCHIP_BASE      0xC8000000
@@ -20,10 +21,11 @@ volatile int *KEY_ptr = (int *)KEY_BASE;
 volatile int *Video_In_DMA_ptr = (int *)VIDEO_IN_BASE;
 volatile short *Video_Mem_ptr = (short *)FPGA_ONCHIP_BASE;
 
-void overlay_timestamp() {
+void overlay_timestamp(int image_count) {
     time_t now;
     struct tm *time_info;
     char timestamp[20];  
+    char image_count_str[10];
 	int i; 
 
 
@@ -32,18 +34,28 @@ void overlay_timestamp() {
 	time_info->tm_hour = time_info->tm_hour - 4;  
     sprintf(timestamp, "%02d:%02d:%02d", time_info->tm_hour, time_info->tm_min, time_info->tm_sec);
 
+    sprintf(image_count_str, "Image: %d", image_count);
+
+
     int row = 5, col = 10;
     volatile char *char_ptr = char_buffer + (row << 7) + col;
 
     for (i = 0; timestamp[i] != '\0'; i++) {
         *(char_ptr + i) = timestamp[i];
     }
+
+    row = 6; 
+    char_ptr = char_buffer + (row << 7) + col;
+
+    for (i = 0; image_count_str[i] != '\0'; i++) {
+        *(char_ptr + i) = image_count_str[i];
+    }
 }
 
 void greyScale() {
 	int x, y;
     short pixel;
-	short grayscale, inverted; 
+	short grayscale; 
 
 	for (y = 0; y < 240; y++) {
         for (x = 0; x < 320; x++) {
@@ -56,13 +68,35 @@ void greyScale() {
 
             short bw = (grayscale > 16) ? 0xFFFF : 0x0000;
 
-            inverted = ~bw;
-
-            *(Video_Mem_ptr + (y << 9) + x) = inverted;
+            *(Video_Mem_ptr + (y << 9) + x) = bw;
         }
     }
 
 }
+
+void invert(){
+    int x, y;
+    short pixel;
+    short grayscale, inverted; 
+    
+    for (y = 0; y < 240; y++) {
+        for (x = 0; x < 320; x++) {
+            pixel = *(Video_Mem_ptr + (y << 9) + x);
+    
+            short red = (pixel >> 11) & 0x1F;
+            short green = (pixel >> 5) & 0x3F;
+            short blue = pixel & 0x1F;
+            grayscale = (red + green + blue) / 3;
+    
+            short bw = (grayscale > 16) ? 0xFFFF : 0x0000;
+    
+            inverted = ~bw;
+    
+            *(Video_Mem_ptr + (y << 9) + x) = inverted;
+            }
+        }
+    
+    }
 
 void mirror() {
 	int x, y;
@@ -88,29 +122,61 @@ void flip() {
     }
 }
 
-int main(void) {
-	int current_state = 1;  
+int main(void) 
+{
+	int counter = 1;
+    int image_count = 0;   
     *(Video_In_DMA_ptr + 3) = 0x4;  
 
-    while (1) {
+    while (1) 
+    {
         int button_press = *KEY_ptr;  
 
-        if (button_press == 0x1) {  
-            if (current_state == 1) {
-                *(Video_In_DMA_ptr + 3) = 0x0;  
-				mirror();
+        while (button_press == 0x1) 
+        {  
+            *(Video_In_DMA_ptr + 3) = 0x0;
+            overlay_timestamp(image_count);
+
+            if (counter == 1) 
+            {
 				flip();
-				greyScale();
-                current_state = 0;  
+                counter++;
+                image_count++;
+                break; 
             }
-        } else if (button_press == 0x2) {  
-            if (current_state == 0) {
-                *(Video_In_DMA_ptr + 3) = 0x4;  
-                current_state = 1; 
+
+            else if (counter == 2) 
+            {
+                mirror();
+                counter++;
+                image_count++;
+                break;
+            }
+
+            else if (counter == 3) 
+            {
+                greyScale();
+                counter++;
+                image_count++;
+                break;
+            }
+
+            else if (counter == 4) 
+            {
+                invert();
+                counter = 1;
+                image_count++;
+                break;
             }
         }
+        
+        if (button_press == 0x2) 
+        {  
+            *(Video_In_DMA_ptr + 3) = 0x4;  
+            //counter = 1; 
+        }
 
-        while (*KEY_ptr != 0); 
+        //while (*KEY_ptr != 0); 
     }
 	return 0; 
 

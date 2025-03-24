@@ -110,8 +110,8 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 0 424)
 		(input)
-		(text "video_in_PIXEL_DATA[9..0]" (rect 0 0 121 12)(font "Arial" (font_size 8)))
-		(text "video_in_PIXEL_DATA[9..0]" (rect 4 413 154 424)(font "Arial" (font_size 8)))
+		(text "video_in_PIXEL_DATA[11..0]" (rect 0 0 123 12)(font "Arial" (font_size 8)))
+		(text "video_in_PIXEL_DATA[11..0]" (rect 4 413 160 424)(font "Arial" (font_size 8)))
 		(line (pt 0 424)(pt 240 424)(line_width 3))
 	)
 	(port

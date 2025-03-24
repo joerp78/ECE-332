@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="D5M_Subsystem" kind="D5M_Subsystem" version="1.0" fabric="QSYS">
  <!-- Format version 18.1 625 (Future versions may contain additional information.) -->
- <!-- 2025.03.07.15:45:43 -->
+ <!-- 2025.03.24.12:26:29 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1741380342</value>
+  <value>1742833588</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -124,7 +124,7 @@
 the requested settings for a module instance. -->
   <parameter name="device">
    <type>java.lang.String</type>
-   <value>5MP daughtercard (THDB_D5M)</value>
+   <value>5MP Digital Camera (THDB_D5M)</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -156,7 +156,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="width_in">
    <type>int</type>
-   <value>1280</value>
+   <value>2592</value>
    <derived>true</derived>
    <enabled>false</enabled>
    <visible>true</visible>
@@ -164,7 +164,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="height_in">
    <type>int</type>
-   <value>1024</value>
+   <value>1944</value>
    <derived>true</derived>
    <enabled>false</enabled>
    <visible>true</visible>
@@ -1675,7 +1675,7 @@ parameters are a RESULT of the module parameters. -->
 the requested settings for a module instance. -->
   <parameter name="video_source">
    <type>java.lang.String</type>
-   <value>5MP Daughtercard (THDB_D5M)</value>
+   <value>5MP Digital Camera (THDB_D5M)</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -2040,7 +2040,7 @@ parameters are a RESULT of the module parameters. -->
    <port>
     <name>PIXEL_DATA</name>
     <direction>Input</direction>
-    <width>10</width>
+    <width>12</width>
     <role>export</role>
    </port>
   </interface>

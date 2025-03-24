@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="VGA_Subsystem" kind="VGA_Subsystem" version="1.0" fabric="QSYS">
  <!-- Format version 18.1 625 (Future versions may contain additional information.) -->
- <!-- 2025.03.07.15:45:21 -->
+ <!-- 2025.03.24.12:26:06 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1741380321</value>
+  <value>1742833565</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -3236,7 +3236,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="camera">
    <type>java.lang.String</type>
-   <value>5MP Digital Camera</value>
+   <value>5MP Digital Camera (THDB_D5M)</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -3276,7 +3276,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="lcd">
    <type>java.lang.String</type>
-   <value>7" LCD on VEEK-MT and MTL Module</value>
+   <value>7" LCD on VEEK-MT and MTL/MTL2 Modules</value>
    <derived>false</derived>
    <enabled>false</enabled>
    <visible>true</visible>
