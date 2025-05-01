@@ -368,13 +368,16 @@ void processTiles_weightStatinary(int numNeurons,
     printf("in the weight stationary function\n");
 
     cl_int err;
+    int weightsStartIndex = tileIndex * inputTileSize; 
+
 
     int outputNeuronsTileSize = 10;
     int currentTileSize = inputTileSize;
 
     #if FPGA == 1
         weightsTileBuffer = clCreateBuffer(context, CL_MEM_READ_ONLY, currentTileSize * outputNeuronsTileSize * sizeof(float), NULL, &err);
-        
+        inputTileBuffer =  clCreateBuffer(context, CL_MEM_READ_ONLY, inputTileSize * outputNeuronsTileSize * sizeof(float), NULL, &err); //check size: inputTileSize * outputNeuronsTileSize * sizeof(float)
+        outputBuffer = clCreateBuffer(context, CL_MEM_READ_ONLY, currentTileSize * outputNeuronsTileSize * sizeof(float), NULL, &err); //check size: currentTileSize * outputNeuronsTileSize * sizeof(float)
         //#TODO : create remaining required buffers
 
         if(err != CL_SUCCESS){
@@ -395,6 +398,10 @@ void processTiles_weightStatinary(int numNeurons,
 
     #if FPGA == 1    
         clSetKernelArg(kernel, 0, sizeof(cl_mem), (void*)&inputTileBuffer);
+        clSetKernelArg(kernel, 1, sizeof(cl_mem), (void*)&weightsTileBuffer);
+        clSetKernelArg(kernel, 2, sizeof(int), &inputTileSize);
+        clSetKernelArg(kernel, 3, sizeof(int), &outputNeuronsTileSize);
+        clSetKernelArg(kernel, 4, sizeof(cl_mem), (void*)&outputBuffer);
         //#TODO : set remaining kernel arguments
     #endif
 
@@ -403,24 +410,35 @@ void processTiles_weightStatinary(int numNeurons,
 
     //For each kernel launch you write data to the buffers using a command similar to the following 
     // err = clEnqueueWriteBuffer(queue, weightsTileBuffer, CL_TRUE, 0, weightsPerTile * sizeof(float), &hidden_layer1_weights[weightsStartIndex], 0, NULL, NULL);
+    
+    err = clEnqueueWriteBuffer(queue, inputTileBuffer, CL_TRUE, 0, weightsPerTile * sizeof(float), &inputs[weightsStartIndex], 0, NULL, NULL);
+    err = clEnqueueWriteBuffer(queue, weightsTileBuffer, CL_TRUE, 0, weightsPerTile * sizeof(float), &hidden_layer1_weights[weightsStartIndex], 0, NULL, NULL);
+
 
     //#TODO: After writing buffers to each kernel launch kernel using the follwoing code
 
     // global work size and local work sizes are the kernel dimensions, for this lab sizes as simple as the following is good
 
-    //size_t global_work_size[] = {static_cast<size_t>(10)};
-    //size_t local_work_size[] = {static_cast<size_t>(1)};
+    size_t global_work_size[] = {static_cast<size_t>(10)};
+    size_t local_work_size[] = {static_cast<size_t>(1)};
 
     // assuming you implemented a 1D kernel in OpenCL, if you implemented 2D please discuss with TA    
 
-    //err = clEnqueueNDRangeKernel(queue, kernel, 0, NULL, global_work_size, local_work_size, 1, NULL, NULL);
+    err = clEnqueueNDRangeKernel(queue, kernel, 0, NULL, global_work_size, local_work_size, 1, NULL, NULL);
 
     // OpenCL kernels running on FPGA are not synchornous. You will synchronize your computations by waiting till the queue is finished by the following code    
-    // clFinish(queue);    
+    clFinish(queue);    
     
+    err = clEnqueueReadBuffer(queue, outputBuffer, CL_TRUE, 0,  weightsPerTile * sizeof(float), outputBuffer, 0, NULL, NULL); //Size
+
+    for(int i=0;i<numNeurons;i++){
+        outputs[i] += outputBuffer[i];
+    } 
 
     #if FPGA == 1
         clReleaseMemObject(inputTileBuffer);
+        clReleaseMemObject(outputBuffer);
+        clReleaseMemObject(weightsTileBuffer);
         //#TODO: release remaining memory buffers
     #endif
 }
@@ -446,6 +464,31 @@ void run() {
 
 
     printf("started running on fpga\n");
+
+    hidden_layer1_out.resize(numNeurons * inputTileSize);
+
+    processTiles_weightStatinary(numNeurons,
+        inputSize, // Size of the input array
+        inputTileSize,  // Tile size of the Input vector          
+        hidden_layer1_weights, // Weights array
+        hidden_layer1_biases,  // biases array
+        image_data,  // inputs array 
+        hidden_layer1_out  // outputs array);
+        );
+        relu(hidden_layer1_out);
+
+        output_layer_out.resize(numNeurons);
+
+        processTiles_weightStatinary(numNeurons,
+        numNeurons, // Size of the input array
+        inputTileSize,  //[SAME AS INPUT?] Tile size of the Input vector          
+        output_layer_weights, // Weights array
+        output_layer_biases,  // biases array
+        hidden_layer1_out,  // inputs array 
+        output_layer_out  // outputs array);
+        );
+        log_softmax(output_layer_out);
+
 
     //#TODO: similar to connecting computing each layer and connecting them in CPU code, implement same logic here but calling the FPGA functions
 }
