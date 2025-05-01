@@ -1,0 +1,394 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system.qsys --block-symbol-file --output-directory=/ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system --family="Cyclone V" --part=5CSEMA5F31C6
+Progress: Loading de1soc_sharedonly/system.qsys
+Progress: Reading input file
+Progress: Adding acl_iface [acl_iface_system 1.0]
+Progress: Parameterizing module acl_iface
+Progress: Adding ext_clk_50 [clock_source 18.1]
+Progress: Parameterizing module ext_clk_50
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: system.acl_iface.D5M_Subsystem.Bayer_Resampler: Change in Resolution: 2592 x 1944 -> 1296 x 972
+Info: system.acl_iface.D5M_Subsystem.Video_In: Video In Stream: Format: 2592 x 1944 (default) with Colour: 8 (bits) x 1 (planes) (RGB Bayer Pattern)
+Info: system.acl_iface.D5M_Subsystem.Video_In_Clipper: Change in Resolution: 1296 x 972 -> 1280 x 960
+Info: system.acl_iface.D5M_Subsystem.Video_In_RGB_Resampler: RGB Resampling: 8 (bits) x 3 (planes) -> 16 (bits) x 1 (planes)
+Info: system.acl_iface.D5M_Subsystem.Video_In_Scaler: Change in Resolution: 1280 x 960 -> 320 x 240
+Warning: system.acl_iface.D5M_Subsystem.Video_In_RGB_Resampler: Video_In_RGB_Resampler.avalon_rgb_slave must be connected to an Avalon-MM master
+Warning: system.acl_iface.Pixel_DMA_Addr_Translation.master: Master needs a minimum address width of 3 bits (has 2)
+Info: system.acl_iface.Pushbuttons: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: system.acl_iface.SDRAM: SDRAM Controller will only be supported in Quartus Prime Standard Edition in the future release.
+Info: system.acl_iface.VGA_Subsystem.VGA_Char_Buffer: Character Resolution: 80 x 60
+Info: system.acl_iface.VGA_Subsystem.VGA_Controller: Video Output Stream: Format: 640 x 480 with Color: 10 (bits) x 3 (planes) converted to 8 (bits) per color plane
+Info: system.acl_iface.VGA_Subsystem.VGA_Pixel_RGB_Resampler: RGB Resampling: 16 (bits) x 1 (planes) -> 10 (bits) x 3 (planes)
+Info: system.acl_iface.VGA_Subsystem.VGA_Pixel_Scaler: Change in Resolution: 320 x 240 -> 640 x 480
+Info: system.acl_iface.VGA_Subsystem.VGA_Pixel_Scaler.avalon_scaler_source/VGA_Alpha_Blender.avalon_background_sink: The source has a channel signal of 2 bits, but the sink does not. Avalon-ST Adapter will be inserted.
+Warning: system.acl_iface.VGA_Subsystem.VGA_Pixel_RGB_Resampler: VGA_Pixel_RGB_Resampler.avalon_rgb_slave must be connected to an Avalon-MM master
+Warning: system.acl_iface.Video_In_DMA_Addr_Translation.master: Master needs a minimum address width of 3 bits (has 2)
+Warning: system.acl_iface.acl_kernel_clk.kernel_clk: The input clock frequency must be known or set by the parent if this is a subsystem.
+Info: system.acl_iface.acl_kernel_clk.kernel_pll: The legal reference clock frequency is 50.0 MHz..800.0 MHz
+Info: system.acl_iface.acl_kernel_clk.kernel_pll: Able to implement PLL with user settings
+Warning: system.acl_iface.acl_kernel_clk.kernel_pll: kernel_pll.reconfig_to_pll must be exported, or connected to a matching conduit.
+Warning: system.acl_iface.acl_kernel_clk.kernel_pll: kernel_pll.reconfig_from_pll must be exported, or connected to a matching conduit.
+Info: system.acl_iface.hps: HPS Main PLL counter settings: n = 0  m = 73
+Info: system.acl_iface.hps: HPS peripherial PLL counter settings: n = 0  m = 39
+Warning: system.acl_iface.hps: "Configuration/HPS-to-FPGA user 0 clock frequency" (desired_cfg_clk_mhz) requested 100.0 MHz, but only achieved 97.368421 MHz
+Warning: system.acl_iface.hps: 1 or more output clock frequencies cannot be achieved precisely, consider revising desired output clock frequencies.
+Info: system.acl_iface.pll: The legal reference clock frequency is 5.0 MHz..800.0 MHz
+Info: system.acl_iface.pll: Able to implement PLL with user settings
+Warning: system.acl_iface.acl_kernel_clk.kernel_clk/kernel_clk.clk_in: kernel_clk.clk_in requires 50000000Hz, but source has frequency of 0Hz
+Warning: system.acl_iface.SDRAM: SDRAM.wire must be exported, or connected to a matching conduit.
+Warning: system.acl_iface.acl_kernel_interface: acl_kernel_interface.acl_bsp_memorg_host0x018 must be exported, or connected to a matching conduit.
+Warning: system.acl_iface.VGA_Subsystem: VGA_Subsystem.char_buffer_control_slave must be connected to an Avalon-MM master
+Warning: system.acl_iface.VGA_Subsystem: VGA_Subsystem.char_buffer_slave must be connected to an Avalon-MM master
+Warning: system.acl_iface.acl_kernel_clk: acl_kernel_clk.ctrl must be connected to an Avalon-MM master
+Warning: system.acl_iface: acl_iface.acl_internal_memorg_kernel must be exported, or connected to a matching conduit.
+Warning: system.acl_iface: acl_iface.acl_kernel_clk_kernel_pll_locked must be exported, or connected to a matching conduit.
+Warning: system.acl_iface: acl_iface.kernel_cra must be connected to an Avalon-MM slave
+Warning: system.acl_iface: acl_iface.kernel_mem0 must be connected to an Avalon-MM master
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system.qsys --synthesis=VERILOG --output-directory=/ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis --family="Cyclone V" --part=5CSEMA5F31C6
+Progress: Loading de1soc_sharedonly/system.qsys
+Progress: Reading input file
+Progress: Adding acl_iface [acl_iface_system 1.0]
+Progress: Parameterizing module acl_iface
+Progress: Adding ext_clk_50 [clock_source 18.1]
+Progress: Parameterizing module ext_clk_50
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: system.acl_iface.D5M_Subsystem.Bayer_Resampler: Change in Resolution: 2592 x 1944 -> 1296 x 972
+Info: system.acl_iface.D5M_Subsystem.Video_In: Video In Stream: Format: 2592 x 1944 (default) with Colour: 8 (bits) x 1 (planes) (RGB Bayer Pattern)
+Info: system.acl_iface.D5M_Subsystem.Video_In_Clipper: Change in Resolution: 1296 x 972 -> 1280 x 960
+Info: system.acl_iface.D5M_Subsystem.Video_In_RGB_Resampler: RGB Resampling: 8 (bits) x 3 (planes) -> 16 (bits) x 1 (planes)
+Info: system.acl_iface.D5M_Subsystem.Video_In_Scaler: Change in Resolution: 1280 x 960 -> 320 x 240
+Warning: system.acl_iface.D5M_Subsystem.Video_In_RGB_Resampler: Video_In_RGB_Resampler.avalon_rgb_slave must be connected to an Avalon-MM master
+Warning: system.acl_iface.Pixel_DMA_Addr_Translation.master: Master needs a minimum address width of 3 bits (has 2)
+Info: system.acl_iface.Pushbuttons: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: system.acl_iface.SDRAM: SDRAM Controller will only be supported in Quartus Prime Standard Edition in the future release.
+Info: system.acl_iface.VGA_Subsystem.VGA_Char_Buffer: Character Resolution: 80 x 60
+Info: system.acl_iface.VGA_Subsystem.VGA_Controller: Video Output Stream: Format: 640 x 480 with Color: 10 (bits) x 3 (planes) converted to 8 (bits) per color plane
+Info: system.acl_iface.VGA_Subsystem.VGA_Pixel_RGB_Resampler: RGB Resampling: 16 (bits) x 1 (planes) -> 10 (bits) x 3 (planes)
+Info: system.acl_iface.VGA_Subsystem.VGA_Pixel_Scaler: Change in Resolution: 320 x 240 -> 640 x 480
+Info: system.acl_iface.VGA_Subsystem.VGA_Pixel_Scaler.avalon_scaler_source/VGA_Alpha_Blender.avalon_background_sink: The source has a channel signal of 2 bits, but the sink does not. Avalon-ST Adapter will be inserted.
+Warning: system.acl_iface.VGA_Subsystem.VGA_Pixel_RGB_Resampler: VGA_Pixel_RGB_Resampler.avalon_rgb_slave must be connected to an Avalon-MM master
+Warning: system.acl_iface.Video_In_DMA_Addr_Translation.master: Master needs a minimum address width of 3 bits (has 2)
+Warning: system.acl_iface.acl_kernel_clk.kernel_clk: The input clock frequency must be known or set by the parent if this is a subsystem.
+Info: system.acl_iface.acl_kernel_clk.kernel_pll: The legal reference clock frequency is 50.0 MHz..800.0 MHz
+Info: system.acl_iface.acl_kernel_clk.kernel_pll: Able to implement PLL with user settings
+Warning: system.acl_iface.acl_kernel_clk.kernel_pll: kernel_pll.reconfig_to_pll must be exported, or connected to a matching conduit.
+Warning: system.acl_iface.acl_kernel_clk.kernel_pll: kernel_pll.reconfig_from_pll must be exported, or connected to a matching conduit.
+Info: system.acl_iface.hps: HPS Main PLL counter settings: n = 0  m = 73
+Info: system.acl_iface.hps: HPS peripherial PLL counter settings: n = 0  m = 39
+Warning: system.acl_iface.hps: "Configuration/HPS-to-FPGA user 0 clock frequency" (desired_cfg_clk_mhz) requested 100.0 MHz, but only achieved 97.368421 MHz
+Warning: system.acl_iface.hps: 1 or more output clock frequencies cannot be achieved precisely, consider revising desired output clock frequencies.
+Info: system.acl_iface.pll: The legal reference clock frequency is 5.0 MHz..800.0 MHz
+Info: system.acl_iface.pll: Able to implement PLL with user settings
+Warning: system.acl_iface.acl_kernel_clk.kernel_clk/kernel_clk.clk_in: kernel_clk.clk_in requires 50000000Hz, but source has frequency of 0Hz
+Warning: system.acl_iface.SDRAM: SDRAM.wire must be exported, or connected to a matching conduit.
+Warning: system.acl_iface.acl_kernel_interface: acl_kernel_interface.acl_bsp_memorg_host0x018 must be exported, or connected to a matching conduit.
+Warning: system.acl_iface.VGA_Subsystem: VGA_Subsystem.char_buffer_control_slave must be connected to an Avalon-MM master
+Warning: system.acl_iface.VGA_Subsystem: VGA_Subsystem.char_buffer_slave must be connected to an Avalon-MM master
+Warning: system.acl_iface.acl_kernel_clk: acl_kernel_clk.ctrl must be connected to an Avalon-MM master
+Warning: system.acl_iface: acl_iface.acl_internal_memorg_kernel must be exported, or connected to a matching conduit.
+Warning: system.acl_iface: acl_iface.acl_kernel_clk_kernel_pll_locked must be exported, or connected to a matching conduit.
+Warning: system.acl_iface: acl_iface.kernel_cra must be connected to an Avalon-MM slave
+Warning: system.acl_iface: acl_iface.kernel_mem0 must be connected to an Avalon-MM master
+Info: system: Generating system "system" for QUARTUS_SYNTH
+Info: Interconnect is inserted between master address_span_extender_kernel.expanded_master and slave hps.f2h_sdram0_data because the master has address signal 32 bit wide, but the slave is 27 bit wide.
+Info: Interconnect is inserted between master address_span_extender_kernel.expanded_master and slave hps.f2h_sdram0_data because the master has burstcount signal 5 bit wide, but the slave is 8 bit wide.
+Info: Interconnect is inserted between master hps.h2f_lw_axi_master and slave pipe_stage_host_ctrl.s0 because the master is of type axi and the slave is of type avalon.
+Info: Interconnect is inserted between master clock_cross_kernel_mem1.m0 and slave address_span_extender_kernel.windowed_slave because the master has debugaccess signal 1 bit wide, but the slave is 0 bit wide.
+Warning: hps.f2h_irq0: Cannot connect clock for irq_mapper.sender
+Warning: hps.f2h_irq0: Cannot connect reset for irq_mapper.sender
+Warning: hps.f2h_irq1: Cannot connect clock for irq_mapper_001.sender
+Warning: hps.f2h_irq1: Cannot connect reset for irq_mapper_001.sender
+Info: acl_iface: "system" instantiated acl_iface_system "acl_iface"
+Info: irq_mapper: "system" instantiated altera_irq_mapper "irq_mapper"
+Info: rst_controller: "system" instantiated altera_reset_controller "rst_controller"
+Info: ADC: Starting Generation of ADC Controller for DE-series Board
+Info: ADC: /ChanduHDD/Research/FPGA/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/altera_up_avalon_adv_adc.v /tmp/alt9804_3080220942726217623.dir/0005_sopcgen/system_acl_iface_ADC.v
+Info: ADC: "acl_iface" instantiated altera_up_avalon_adc "ADC"
+Info: AV_Config: Starting Generation of Audio and Video Config
+Info: AV_Config: "acl_iface" instantiated altera_up_avalon_audio_and_video_config "AV_Config"
+Info: D5M_Subsystem: "acl_iface" instantiated D5M_Subsystem "D5M_Subsystem"
+Info: JTAG_to_FPGA_Bridge: "acl_iface" instantiated altera_jtag_avalon_master "JTAG_to_FPGA_Bridge"
+Info: Onchip_SRAM: Starting RTL generation for module 'system_acl_iface_Onchip_SRAM'
+Info: Onchip_SRAM:   Generation command is [exec /ChanduHDD/Research/FPGA/quartus/linux64/perl/bin/perl -I /ChanduHDD/Research/FPGA/quartus/linux64/perl/lib -I /ChanduHDD/Research/FPGA/quartus/sopc_builder/bin/europa -I /ChanduHDD/Research/FPGA/quartus/sopc_builder/bin/perl_lib -I /ChanduHDD/Research/FPGA/quartus/sopc_builder/bin -I /ChanduHDD/Research/FPGA/quartus/../ip/altera/sopc_builder_ip/common -I /ChanduHDD/Research/FPGA/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- /ChanduHDD/Research/FPGA/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=system_acl_iface_Onchip_SRAM --dir=/tmp/alt9804_3080220942726217623.dir/0009_Onchip_SRAM_gen/ --quartus_dir=/ChanduHDD/Research/FPGA/quartus --verilog --config=/tmp/alt9804_3080220942726217623.dir/0009_Onchip_SRAM_gen//system_acl_iface_Onchip_SRAM_component_configuration.pl  --do_build_sim=0  ]
+Info: Onchip_SRAM: Done RTL generation for module 'system_acl_iface_Onchip_SRAM'
+Info: Onchip_SRAM: "acl_iface" instantiated altera_avalon_onchip_memory2 "Onchip_SRAM"
+Info: Pixel_DMA_Addr_Translation: "acl_iface" instantiated altera_up_avalon_video_dma_ctrl_addr_trans "Pixel_DMA_Addr_Translation"
+Info: Pushbuttons: Starting RTL generation for module 'system_acl_iface_Pushbuttons'
+Info: Pushbuttons:   Generation command is [exec /ChanduHDD/Research/FPGA/quartus/linux64/perl/bin/perl -I /ChanduHDD/Research/FPGA/quartus/linux64/perl/lib -I /ChanduHDD/Research/FPGA/quartus/sopc_builder/bin/europa -I /ChanduHDD/Research/FPGA/quartus/sopc_builder/bin/perl_lib -I /ChanduHDD/Research/FPGA/quartus/sopc_builder/bin -I /ChanduHDD/Research/FPGA/quartus/../ip/altera/sopc_builder_ip/common -I /ChanduHDD/Research/FPGA/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- /ChanduHDD/Research/FPGA/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=system_acl_iface_Pushbuttons --dir=/tmp/alt9804_3080220942726217623.dir/0011_Pushbuttons_gen/ --quartus_dir=/ChanduHDD/Research/FPGA/quartus --verilog --config=/tmp/alt9804_3080220942726217623.dir/0011_Pushbuttons_gen//system_acl_iface_Pushbuttons_component_configuration.pl  --do_build_sim=0  ]
+Info: Pushbuttons: Done RTL generation for module 'system_acl_iface_Pushbuttons'
+Info: Pushbuttons: "acl_iface" instantiated altera_avalon_pio "Pushbuttons"
+Info: SDRAM: Starting RTL generation for module 'system_acl_iface_SDRAM'
+Info: SDRAM:   Generation command is [exec /ChanduHDD/Research/FPGA/quartus/linux64/perl/bin/perl -I /ChanduHDD/Research/FPGA/quartus/linux64/perl/lib -I /ChanduHDD/Research/FPGA/quartus/sopc_builder/bin/europa -I /ChanduHDD/Research/FPGA/quartus/sopc_builder/bin/perl_lib -I /ChanduHDD/Research/FPGA/quartus/sopc_builder/bin -I /ChanduHDD/Research/FPGA/quartus/../ip/altera/sopc_builder_ip/common -I /ChanduHDD/Research/FPGA/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller -- /ChanduHDD/Research/FPGA/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller/generate_rtl.pl --name=system_acl_iface_SDRAM --dir=/tmp/alt9804_3080220942726217623.dir/0012_SDRAM_gen/ --quartus_dir=/ChanduHDD/Research/FPGA/quartus --verilog --config=/tmp/alt9804_3080220942726217623.dir/0012_SDRAM_gen//system_acl_iface_SDRAM_component_configuration.pl  --do_build_sim=0  ]
+Info: SDRAM: Done RTL generation for module 'system_acl_iface_SDRAM'
+Info: SDRAM: "acl_iface" instantiated altera_avalon_new_sdram_controller "SDRAM"
+Info: avalon_st_adapter: Inserting channel_adapter: channel_adapter_0
+Info: VGA_Subsystem: "acl_iface" instantiated VGA_Subsystem "VGA_Subsystem"
+Info: Inserting clock-crossing logic between cmd_demux.src1 and cmd_mux_001.sink0
+Info: Inserting clock-crossing logic between rsp_demux_001.src0 and rsp_mux.sink1
+Info: acl_kernel_clk: "acl_iface" instantiated acl_kernel_clk_noreconfig "acl_kernel_clk"
+Info: Interconnect is inserted between master address_span_extender_0.expanded_master and slave kernel_cra.s0 because the master has readdata signal 32 bit wide, but the slave is 64 bit wide.
+Info: Interconnect is inserted between master address_span_extender_0.expanded_master and slave kernel_cra.s0 because the master has writedata signal 32 bit wide, but the slave is 64 bit wide.
+Info: Interconnect is inserted between master address_span_extender_0.expanded_master and slave kernel_cra.s0 because the master has byteenable signal 4 bit wide, but the slave is 8 bit wide.
+Info: Inserting clock-crossing logic between cmd_demux.src0 and cmd_mux.sink0
+Info: Inserting clock-crossing logic between cmd_demux.src1 and cmd_mux_001.sink0
+Info: Inserting clock-crossing logic between rsp_demux.src0 and rsp_mux.sink0
+Info: Inserting clock-crossing logic between rsp_demux_001.src0 and rsp_mux.sink1
+Warning: irq_ena_0.my_irq_in: Cannot connect clock for irq_mapper.sender
+Warning: irq_ena_0.my_irq_in: Cannot connect reset for irq_mapper.sender
+Info: acl_kernel_interface: "acl_iface" instantiated acl_kernel_interface_soc "acl_kernel_interface"
+Info: address_span_extender_kernel: "acl_iface" instantiated altera_address_span_extender "address_span_extender_kernel"
+Info: clock_cross_kernel_mem1: "acl_iface" instantiated altera_avalon_mm_clock_crossing_bridge "clock_cross_kernel_mem1"
+Info: hps: "Running  for module: hps"
+Info: hps: HPS Main PLL counter settings: n = 0  m = 73
+Info: hps: HPS peripherial PLL counter settings: n = 0  m = 39
+Warning: hps: "Configuration/HPS-to-FPGA user 0 clock frequency" (desired_cfg_clk_mhz) requested 100.0 MHz, but only achieved 97.368421 MHz
+Warning: hps: 1 or more output clock frequencies cannot be achieved precisely, consider revising desired output clock frequencies.
+Info: hps: "acl_iface" instantiated altera_hps "hps"
+Info: led: Starting RTL generation for module 'system_acl_iface_led'
+Info: led:   Generation command is [exec /ChanduHDD/Research/FPGA/quartus/linux64/perl/bin/perl -I /ChanduHDD/Research/FPGA/quartus/linux64/perl/lib -I /ChanduHDD/Research/FPGA/quartus/sopc_builder/bin/europa -I /ChanduHDD/Research/FPGA/quartus/sopc_builder/bin/perl_lib -I /ChanduHDD/Research/FPGA/quartus/sopc_builder/bin -I /ChanduHDD/Research/FPGA/quartus/../ip/altera/sopc_builder_ip/common -I /ChanduHDD/Research/FPGA/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- /ChanduHDD/Research/FPGA/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=system_acl_iface_led --dir=/tmp/alt9804_3080220942726217623.dir/0015_led_gen/ --quartus_dir=/ChanduHDD/Research/FPGA/quartus --verilog --config=/tmp/alt9804_3080220942726217623.dir/0015_led_gen//system_acl_iface_led_component_configuration.pl  --do_build_sim=0  ]
+Info: led: Done RTL generation for module 'system_acl_iface_led'
+Info: led: "acl_iface" instantiated altera_avalon_pio "led"
+Info: pipe_stage_host_ctrl: "acl_iface" instantiated altera_avalon_mm_bridge "pipe_stage_host_ctrl"
+Info: pll: "acl_iface" instantiated altera_pll "pll"
+Info: version_id: "acl_iface" instantiated version_id "version_id"
+Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: mm_interconnect_0: "acl_iface" instantiated altera_mm_interconnect "mm_interconnect_0"
+Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_002: Inserting error_adapter: error_adapter_0
+Info: mm_interconnect_1: "acl_iface" instantiated altera_mm_interconnect "mm_interconnect_1"
+Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: mm_interconnect_2: "acl_iface" instantiated altera_mm_interconnect "mm_interconnect_2"
+Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_002: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_003: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_004: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_005: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_006: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_007: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_008: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_009: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_010: Inserting error_adapter: error_adapter_0
+Info: mm_interconnect_3: "acl_iface" instantiated altera_mm_interconnect "mm_interconnect_3"
+Info: mm_interconnect_4: "acl_iface" instantiated altera_mm_interconnect "mm_interconnect_4"
+Info: irq_mapper: "acl_iface" instantiated altera_irq_mapper "irq_mapper"
+Info: Bayer_Resampler: Starting Generation of Video Bayer Pattern Resampler
+Info: Bayer_Resampler: "D5M_Subsystem" instantiated altera_up_avalon_video_bayer_resampler "Bayer_Resampler"
+Info: D5M_Config: Starting Generation of Audio and Video Config
+Info: D5M_Config: "D5M_Subsystem" instantiated altera_up_avalon_audio_and_video_config "D5M_Config"
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_up_av_config_serial_bus_controller.v
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_up_slow_clock_generator.v
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_up_av_config_auto_init.v
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_up_av_config_auto_init_dc2.v
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_up_av_config_auto_init_d5m.v
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_up_av_config_auto_init_lcm.v
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_up_av_config_auto_init_ltm.v
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_up_av_config_auto_init_ob_de1_soc.v
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_up_av_config_auto_init_ob_de2_115.v
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_up_av_config_auto_init_ob_de2i_150.v
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_up_av_config_auto_init_ob_de10_standard.v
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_up_av_config_auto_init_ob_audio.v
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_up_av_config_auto_init_ob_adv7180.v
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_up_av_config_auto_init_ob_adv7181.v
+Info: Video_In: Starting Generation of Video In Decoder
+Info: Video_In: "D5M_Subsystem" instantiated altera_up_avalon_video_decoder "Video_In"
+Info: Video_In_Clipper: Starting generation of the video clipper
+Info: Video_In_Clipper: "D5M_Subsystem" instantiated altera_up_avalon_video_clipper "Video_In_Clipper"
+Info: Video_In_DMA: Starting Generation of Video DMA Controller
+Info: Video_In_DMA: "D5M_Subsystem" instantiated altera_up_avalon_video_dma_controller "Video_In_DMA"
+Info: Video_In_RGB_Resampler: Starting Generation of Video RGB Resampler
+Info: Video_In_RGB_Resampler: "D5M_Subsystem" instantiated altera_up_avalon_video_rgb_resampler "Video_In_RGB_Resampler"
+Info: Video_In_Scaler: Starting Generation of Video Scaler
+Info: Video_In_Scaler: "D5M_Subsystem" instantiated altera_up_avalon_video_scaler "Video_In_Scaler"
+Info: jtag_phy_embedded_in_jtag_master: "JTAG_to_FPGA_Bridge" instantiated altera_jtag_dc_streaming "jtag_phy_embedded_in_jtag_master"
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_std_synchronizer_nocut.v
+Info: timing_adt: "JTAG_to_FPGA_Bridge" instantiated timing_adapter "timing_adt"
+Info: fifo: "JTAG_to_FPGA_Bridge" instantiated altera_avalon_sc_fifo "fifo"
+Info: b2p: "JTAG_to_FPGA_Bridge" instantiated altera_avalon_st_bytes_to_packets "b2p"
+Info: p2b: "JTAG_to_FPGA_Bridge" instantiated altera_avalon_st_packets_to_bytes "p2b"
+Info: transacto: "JTAG_to_FPGA_Bridge" instantiated altera_avalon_packets_to_master "transacto"
+Info: b2p_adapter: "JTAG_to_FPGA_Bridge" instantiated channel_adapter "b2p_adapter"
+Info: p2b_adapter: "JTAG_to_FPGA_Bridge" instantiated channel_adapter "p2b_adapter"
+Info: VGA_Alpha_Blender: Starting Generation of the Alpha Blender
+Info: VGA_Alpha_Blender: "VGA_Subsystem" instantiated altera_up_avalon_video_alpha_blender "VGA_Alpha_Blender"
+Info: VGA_Char_Buffer: Starting Generation of Character Buffer
+Info: VGA_Char_Buffer: "VGA_Subsystem" instantiated altera_up_avalon_video_character_buffer_with_dma "VGA_Char_Buffer"
+Info: VGA_Controller: Starting Generation of VGA Controller
+Info: VGA_Controller: "VGA_Subsystem" instantiated altera_up_avalon_video_vga_controller "VGA_Controller"
+Info: VGA_Dual_Clock_FIFO: Starting Generation of the Dual Clock Buffer
+Info: VGA_Dual_Clock_FIFO: "VGA_Subsystem" instantiated altera_up_avalon_video_dual_clock_buffer "VGA_Dual_Clock_FIFO"
+Info: VGA_PLL: "VGA_Subsystem" instantiated altera_up_avalon_video_pll "VGA_PLL"
+Info: VGA_Pixel_DMA: Starting Generation of VGA Pixel Buffer
+Info: VGA_Pixel_DMA: "VGA_Subsystem" instantiated altera_up_avalon_video_pixel_buffer_dma "VGA_Pixel_DMA"
+Info: VGA_Pixel_FIFO: Starting Generation of the Dual Clock Buffer
+Info: VGA_Pixel_FIFO: "VGA_Subsystem" instantiated altera_up_avalon_video_dual_clock_buffer "VGA_Pixel_FIFO"
+Info: VGA_Pixel_RGB_Resampler: Starting Generation of Video RGB Resampler
+Info: VGA_Pixel_RGB_Resampler: "VGA_Subsystem" instantiated altera_up_avalon_video_rgb_resampler "VGA_Pixel_RGB_Resampler"
+Info: VGA_Pixel_Scaler: Starting Generation of Video Scaler
+Info: VGA_Pixel_Scaler: "VGA_Subsystem" instantiated altera_up_avalon_video_scaler "VGA_Pixel_Scaler"
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_up_video_scaler_shrink.v
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_up_video_scaler_multiply_width.v
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_up_video_scaler_multiply_height.v
+Info: avalon_st_adapter: "VGA_Subsystem" instantiated altera_avalon_st_adapter "avalon_st_adapter"
+Info: kernel_pll: "acl_kernel_clk" instantiated altera_pll "kernel_pll"
+Info: counter: "acl_kernel_clk" instantiated acl_timer "counter"
+Info: global_routing_kernel_clk: "acl_kernel_clk" instantiated global_routing_clk "global_routing_kernel_clk"
+Info: pll_sw_reset: "acl_kernel_clk" instantiated sw_reset "pll_sw_reset"
+Info: pll_lock_avs_0: "acl_kernel_clk" instantiated pll_lock_avs "pll_lock_avs_0"
+Info: pll_rom: Starting RTL generation for module 'system_acl_iface_acl_kernel_clk_pll_rom'
+Info: pll_rom:   Generation command is [exec /ChanduHDD/Research/FPGA/quartus/linux64/perl/bin/perl -I /ChanduHDD/Research/FPGA/quartus/linux64/perl/lib -I /ChanduHDD/Research/FPGA/quartus/sopc_builder/bin/europa -I /ChanduHDD/Research/FPGA/quartus/sopc_builder/bin/perl_lib -I /ChanduHDD/Research/FPGA/quartus/sopc_builder/bin -I /ChanduHDD/Research/FPGA/quartus/../ip/altera/sopc_builder_ip/common -I /ChanduHDD/Research/FPGA/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- /ChanduHDD/Research/FPGA/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=system_acl_iface_acl_kernel_clk_pll_rom --dir=/tmp/alt9804_3080220942726217623.dir/0043_pll_rom_gen/ --quartus_dir=/ChanduHDD/Research/FPGA/quartus --verilog --config=/tmp/alt9804_3080220942726217623.dir/0043_pll_rom_gen//system_acl_iface_acl_kernel_clk_pll_rom_component_configuration.pl  --do_build_sim=0  ]
+Info: pll_rom: Done RTL generation for module 'system_acl_iface_acl_kernel_clk_pll_rom'
+Info: pll_rom: "acl_kernel_clk" instantiated altera_avalon_onchip_memory2 "pll_rom"
+Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_002: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_003: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_004: Inserting error_adapter: error_adapter_0
+Info: mm_interconnect_0: "acl_kernel_clk" instantiated altera_mm_interconnect "mm_interconnect_0"
+Info: sys_description_rom: Starting RTL generation for module 'system_acl_iface_acl_kernel_interface_sys_description_rom'
+Info: sys_description_rom:   Generation command is [exec /ChanduHDD/Research/FPGA/quartus/linux64/perl/bin/perl -I /ChanduHDD/Research/FPGA/quartus/linux64/perl/lib -I /ChanduHDD/Research/FPGA/quartus/sopc_builder/bin/europa -I /ChanduHDD/Research/FPGA/quartus/sopc_builder/bin/perl_lib -I /ChanduHDD/Research/FPGA/quartus/sopc_builder/bin -I /ChanduHDD/Research/FPGA/quartus/../ip/altera/sopc_builder_ip/common -I /ChanduHDD/Research/FPGA/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- /ChanduHDD/Research/FPGA/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=system_acl_iface_acl_kernel_interface_sys_description_rom --dir=/tmp/alt9804_3080220942726217623.dir/0044_sys_description_rom_gen/ --quartus_dir=/ChanduHDD/Research/FPGA/quartus --verilog --config=/tmp/alt9804_3080220942726217623.dir/0044_sys_description_rom_gen//system_acl_iface_acl_kernel_interface_sys_description_rom_component_configuration.pl  --do_build_sim=0  ]
+Info: sys_description_rom: Done RTL generation for module 'system_acl_iface_acl_kernel_interface_sys_description_rom'
+Info: sys_description_rom: "acl_kernel_interface" instantiated altera_avalon_onchip_memory2 "sys_description_rom"
+Info: mem_org_mode: "acl_kernel_interface" instantiated mem_org_mode "mem_org_mode"
+Info: irq_bridge_0: "acl_kernel_interface" instantiated altera_irq_bridge "irq_bridge_0"
+Info: irq_ena_0: "acl_kernel_interface" instantiated acl_irq_ena "irq_ena_0"
+Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: mm_interconnect_0: "acl_kernel_interface" instantiated altera_mm_interconnect "mm_interconnect_0"
+Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_002: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_003: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_004: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_005: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_006: Inserting error_adapter: error_adapter_0
+Info: mm_interconnect_1: "acl_kernel_interface" instantiated altera_mm_interconnect "mm_interconnect_1"
+Info: irq_mapper: "acl_kernel_interface" instantiated altera_irq_mapper "irq_mapper"
+Info: fpga_interfaces: "hps" instantiated altera_interface_generator "fpga_interfaces"
+Info: hps_io: "hps" instantiated altera_hps_io "hps_io"
+Info: address_span_extender_kernel_expanded_master_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "address_span_extender_kernel_expanded_master_translator"
+Info: hps_f2h_sdram0_data_translator: "mm_interconnect_0" instantiated altera_merlin_slave_translator "hps_f2h_sdram0_data_translator"
+Info: address_span_extender_kernel_expanded_master_agent: "mm_interconnect_0" instantiated altera_merlin_master_agent "address_span_extender_kernel_expanded_master_agent"
+Info: hps_f2h_sdram0_data_agent: "mm_interconnect_0" instantiated altera_merlin_slave_agent "hps_f2h_sdram0_data_agent"
+Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
+Info: router_001: "mm_interconnect_0" instantiated altera_merlin_router "router_001"
+Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
+Info: hps_h2f_axi_master_agent: "mm_interconnect_1" instantiated altera_merlin_axi_master_ni "hps_h2f_axi_master_agent"
+Info: router: "mm_interconnect_1" instantiated altera_merlin_router "router"
+Info: router_002: "mm_interconnect_1" instantiated altera_merlin_router "router_002"
+Info: router_003: "mm_interconnect_1" instantiated altera_merlin_router "router_003"
+Info: router_004: "mm_interconnect_1" instantiated altera_merlin_router "router_004"
+Info: router_005: "mm_interconnect_1" instantiated altera_merlin_router "router_005"
+Info: router_006: "mm_interconnect_1" instantiated altera_merlin_router "router_006"
+Info: router_007: "mm_interconnect_1" instantiated altera_merlin_router "router_007"
+Info: hps_h2f_axi_master_wr_limiter: "mm_interconnect_1" instantiated altera_merlin_traffic_limiter "hps_h2f_axi_master_wr_limiter"
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_avalon_sc_fifo.v
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_avalon_st_pipeline_base.v
+Info: Onchip_SRAM_s1_burst_adapter: "mm_interconnect_1" instantiated altera_merlin_burst_adapter "Onchip_SRAM_s1_burst_adapter"
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_merlin_address_alignment.sv
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_avalon_st_pipeline_stage.sv
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_avalon_st_pipeline_base.v
+Info: cmd_demux: "mm_interconnect_1" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_demux_004: "mm_interconnect_1" instantiated altera_merlin_demultiplexer "cmd_demux_004"
+Info: cmd_mux: "mm_interconnect_1" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: cmd_mux_001: "mm_interconnect_1" instantiated altera_merlin_multiplexer "cmd_mux_001"
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: cmd_mux_002: "mm_interconnect_1" instantiated altera_merlin_multiplexer "cmd_mux_002"
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_demux: "mm_interconnect_1" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_demux_001: "mm_interconnect_1" instantiated altera_merlin_demultiplexer "rsp_demux_001"
+Info: rsp_demux_002: "mm_interconnect_1" instantiated altera_merlin_demultiplexer "rsp_demux_002"
+Info: rsp_mux: "mm_interconnect_1" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: hps_h2f_axi_master_wr_cmd_width_adapter: "mm_interconnect_1" instantiated altera_merlin_width_adapter "hps_h2f_axi_master_wr_cmd_width_adapter"
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_merlin_address_alignment.sv
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+Info: avalon_st_adapter: "mm_interconnect_1" instantiated altera_avalon_st_adapter "avalon_st_adapter"
+Info: router: "mm_interconnect_2" instantiated altera_merlin_router "router"
+Info: router_002: "mm_interconnect_2" instantiated altera_merlin_router "router_002"
+Info: cmd_demux: "mm_interconnect_2" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_mux: "mm_interconnect_2" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_demux: "mm_interconnect_2" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_mux: "mm_interconnect_2" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: avalon_st_adapter: "mm_interconnect_2" instantiated altera_avalon_st_adapter "avalon_st_adapter"
+Info: router: "mm_interconnect_3" instantiated altera_merlin_router "router"
+Info: router_001: "mm_interconnect_3" instantiated altera_merlin_router "router_001"
+Info: router_002: "mm_interconnect_3" instantiated altera_merlin_router "router_002"
+Info: router_003: "mm_interconnect_3" instantiated altera_merlin_router "router_003"
+Info: router_007: "mm_interconnect_3" instantiated altera_merlin_router "router_007"
+Info: router_013: "mm_interconnect_3" instantiated altera_merlin_router "router_013"
+Info: cmd_demux: "mm_interconnect_3" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_demux_001: "mm_interconnect_3" instantiated altera_merlin_demultiplexer "cmd_demux_001"
+Info: cmd_mux: "mm_interconnect_3" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: cmd_mux_004: "mm_interconnect_3" instantiated altera_merlin_multiplexer "cmd_mux_004"
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_demux_004: "mm_interconnect_3" instantiated altera_merlin_demultiplexer "rsp_demux_004"
+Info: rsp_mux: "mm_interconnect_3" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_mux_001: "mm_interconnect_3" instantiated altera_merlin_multiplexer "rsp_mux_001"
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: video_pll: "VGA_PLL" instantiated altera_pll "video_pll"
+Info: reset_from_locked: "VGA_PLL" instantiated altera_up_avalon_reset_from_locked_signal "reset_from_locked"
+Info: channel_adapter_0: "avalon_st_adapter" instantiated channel_adapter "channel_adapter_0"
+Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
+Info: router_001: "mm_interconnect_0" instantiated altera_merlin_router "router_001"
+Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_demux_001: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux_001"
+Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: async_fifo: "mm_interconnect_0" instantiated altera_avalon_dc_fifo "async_fifo"
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_avalon_dc_fifo.v
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_dcfifo_synchronizer_bundle.v
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_std_synchronizer_nocut.v
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_avalon_dc_fifo.sdc
+Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
+Info: router_001: "mm_interconnect_0" instantiated altera_merlin_router "router_001"
+Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
+Info: router: "mm_interconnect_1" instantiated altera_merlin_router "router"
+Info: router_001: "mm_interconnect_1" instantiated altera_merlin_router "router_001"
+Info: router_002: "mm_interconnect_1" instantiated altera_merlin_router "router_002"
+Info: cmd_demux: "mm_interconnect_1" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_mux: "mm_interconnect_1" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_demux: "mm_interconnect_1" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_demux_002: "mm_interconnect_1" instantiated altera_merlin_demultiplexer "rsp_demux_002"
+Info: rsp_mux: "mm_interconnect_1" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: crosser: "mm_interconnect_1" instantiated altera_avalon_st_handshake_clock_crosser "crosser"
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_avalon_st_clock_crosser.v
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_avalon_st_pipeline_base.v
+Info: Reusing file /ChanduHDD/Research/FPGA/hld/board/test/DE1-SoC_OpenCL_BSP/de1_soc/hardware/de1soc_sharedonly/system/synthesis/submodules/altera_std_synchronizer_nocut.v
+Info: border: "hps_io" instantiated altera_interface_generator "border"
+Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
+Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
+Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
+Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
+Info: system: Done "system" with 151 modules, 261 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

@@ -1,0 +1,46 @@
+// Define pipes with appropriate type and capacity
+pipe float inputPipe __attribute__((capacity(1024)));
+pipe float outputPipe __attribute__((capacity(1024)));
+
+
+__kernel void produce_tiles(__global float* matrix, /* Other params */) {
+    // Logic to process data and produce a tile
+    float tile[TILE_SIZE];
+    // Populate tile data...
+    
+    // Write tile data to pipe
+    for (int i = 0; i < TILE_SIZE; i++) {
+        write_pipe(inputPipe, &tile[i]);
+    }
+}
+
+
+__kernel void consume_and_multiply_tiles(/* Params, including output buffer */) {
+    float tile[TILE_SIZE];
+    
+    // Read tile data from pipe
+    for (int i = 0; i < TILE_SIZE; i++) {
+        read_pipe(inputPipe, &tile[i]);
+    }
+
+    // Calculate the ID of the neuron this thread will compute
+
+    int neuron_id = get_global_id(0);
+
+    // Ensure we don't process more neurons than we have in this tile
+    if (neuron_id < output_neurons_tile_size) {
+        float temp_sum = 0.0;
+        
+        // Compute the dot product of the input tile and the corresponding weights
+        for (int i = 0; i < input_tile_size; ++i) {
+
+            int weight_index = neuron_id * input_tile_size + i;
+          //temp_sum += (float)input_tile[i] * (float)weights_tile[weight_index];
+          //temp_sum += (float)weights_tile[weight_index];
+          temp_su += (float)input_tile[i]
+     }
+
+        // Write the computed sum for this neuron to the output tile
+        output_tile[neuron_id] += temp_sum;
+    }
+}

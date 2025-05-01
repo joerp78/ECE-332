@@ -1,0 +1,88 @@
+	component system is
+		port (
+			acl_iface_adc_sclk                  : out   std_logic;                                        -- sclk
+			acl_iface_adc_cs_n                  : out   std_logic;                                        -- cs_n
+			acl_iface_adc_dout                  : in    std_logic                     := 'X';             -- dout
+			acl_iface_adc_din                   : out   std_logic;                                        -- din
+			acl_iface_av_config_SDAT            : inout std_logic                     := 'X';             -- SDAT
+			acl_iface_av_config_SCLK            : out   std_logic;                                        -- SCLK
+			acl_iface_d5m_config_I2C_SDAT       : inout std_logic                     := 'X';             -- I2C_SDAT
+			acl_iface_d5m_config_I2C_SCLK       : out   std_logic;                                        -- I2C_SCLK
+			acl_iface_d5m_config_exposure       : in    std_logic_vector(15 downto 0) := (others => 'X'); -- exposure
+			acl_iface_led_pio_export            : out   std_logic_vector(5 downto 0);                     -- export
+			acl_iface_pushbuttons_export        : in    std_logic_vector(3 downto 0)  := (others => 'X'); -- export
+			acl_iface_vga_CLK                   : out   std_logic;                                        -- CLK
+			acl_iface_vga_HS                    : out   std_logic;                                        -- HS
+			acl_iface_vga_VS                    : out   std_logic;                                        -- VS
+			acl_iface_vga_BLANK                 : out   std_logic;                                        -- BLANK
+			acl_iface_vga_SYNC                  : out   std_logic;                                        -- SYNC
+			acl_iface_vga_R                     : out   std_logic_vector(7 downto 0);                     -- R
+			acl_iface_vga_G                     : out   std_logic_vector(7 downto 0);                     -- G
+			acl_iface_vga_B                     : out   std_logic_vector(7 downto 0);                     -- B
+			acl_iface_vga_pll_d5m_clk_clk       : out   std_logic;                                        -- clk
+			acl_iface_vga_pll_ref_clk_clk       : in    std_logic                     := 'X';             -- clk
+			acl_iface_vga_pll_ref_reset_reset   : in    std_logic                     := 'X';             -- reset
+			acl_iface_video_in_PIXEL_CLK        : in    std_logic                     := 'X';             -- PIXEL_CLK
+			acl_iface_video_in_LINE_VALID       : in    std_logic                     := 'X';             -- LINE_VALID
+			acl_iface_video_in_FRAME_VALID      : in    std_logic                     := 'X';             -- FRAME_VALID
+			acl_iface_video_in_pixel_clk_reset  : in    std_logic                     := 'X';             -- pixel_clk_reset
+			acl_iface_video_in_PIXEL_DATA       : in    std_logic_vector(11 downto 0) := (others => 'X'); -- PIXEL_DATA
+			clk_50_clk                          : in    std_logic                     := 'X';             -- clk
+			kernel_clk_clk                      : out   std_logic;                                        -- clk
+			memory_mem_a                        : out   std_logic_vector(14 downto 0);                    -- mem_a
+			memory_mem_ba                       : out   std_logic_vector(2 downto 0);                     -- mem_ba
+			memory_mem_ck                       : out   std_logic;                                        -- mem_ck
+			memory_mem_ck_n                     : out   std_logic;                                        -- mem_ck_n
+			memory_mem_cke                      : out   std_logic;                                        -- mem_cke
+			memory_mem_cs_n                     : out   std_logic;                                        -- mem_cs_n
+			memory_mem_ras_n                    : out   std_logic;                                        -- mem_ras_n
+			memory_mem_cas_n                    : out   std_logic;                                        -- mem_cas_n
+			memory_mem_we_n                     : out   std_logic;                                        -- mem_we_n
+			memory_mem_reset_n                  : out   std_logic;                                        -- mem_reset_n
+			memory_mem_dq                       : inout std_logic_vector(31 downto 0) := (others => 'X'); -- mem_dq
+			memory_mem_dqs                      : inout std_logic_vector(3 downto 0)  := (others => 'X'); -- mem_dqs
+			memory_mem_dqs_n                    : inout std_logic_vector(3 downto 0)  := (others => 'X'); -- mem_dqs_n
+			memory_mem_odt                      : out   std_logic;                                        -- mem_odt
+			memory_mem_dm                       : out   std_logic_vector(3 downto 0);                     -- mem_dm
+			memory_oct_rzqin                    : in    std_logic                     := 'X';             -- oct_rzqin
+			peripheral_hps_io_emac1_inst_TX_CLK : out   std_logic;                                        -- hps_io_emac1_inst_TX_CLK
+			peripheral_hps_io_emac1_inst_TXD0   : out   std_logic;                                        -- hps_io_emac1_inst_TXD0
+			peripheral_hps_io_emac1_inst_TXD1   : out   std_logic;                                        -- hps_io_emac1_inst_TXD1
+			peripheral_hps_io_emac1_inst_TXD2   : out   std_logic;                                        -- hps_io_emac1_inst_TXD2
+			peripheral_hps_io_emac1_inst_TXD3   : out   std_logic;                                        -- hps_io_emac1_inst_TXD3
+			peripheral_hps_io_emac1_inst_RXD0   : in    std_logic                     := 'X';             -- hps_io_emac1_inst_RXD0
+			peripheral_hps_io_emac1_inst_MDIO   : inout std_logic                     := 'X';             -- hps_io_emac1_inst_MDIO
+			peripheral_hps_io_emac1_inst_MDC    : out   std_logic;                                        -- hps_io_emac1_inst_MDC
+			peripheral_hps_io_emac1_inst_RX_CTL : in    std_logic                     := 'X';             -- hps_io_emac1_inst_RX_CTL
+			peripheral_hps_io_emac1_inst_TX_CTL : out   std_logic;                                        -- hps_io_emac1_inst_TX_CTL
+			peripheral_hps_io_emac1_inst_RX_CLK : in    std_logic                     := 'X';             -- hps_io_emac1_inst_RX_CLK
+			peripheral_hps_io_emac1_inst_RXD1   : in    std_logic                     := 'X';             -- hps_io_emac1_inst_RXD1
+			peripheral_hps_io_emac1_inst_RXD2   : in    std_logic                     := 'X';             -- hps_io_emac1_inst_RXD2
+			peripheral_hps_io_emac1_inst_RXD3   : in    std_logic                     := 'X';             -- hps_io_emac1_inst_RXD3
+			peripheral_hps_io_sdio_inst_CMD     : inout std_logic                     := 'X';             -- hps_io_sdio_inst_CMD
+			peripheral_hps_io_sdio_inst_D0      : inout std_logic                     := 'X';             -- hps_io_sdio_inst_D0
+			peripheral_hps_io_sdio_inst_D1      : inout std_logic                     := 'X';             -- hps_io_sdio_inst_D1
+			peripheral_hps_io_sdio_inst_CLK     : out   std_logic;                                        -- hps_io_sdio_inst_CLK
+			peripheral_hps_io_sdio_inst_D2      : inout std_logic                     := 'X';             -- hps_io_sdio_inst_D2
+			peripheral_hps_io_sdio_inst_D3      : inout std_logic                     := 'X';             -- hps_io_sdio_inst_D3
+			peripheral_hps_io_usb1_inst_D0      : inout std_logic                     := 'X';             -- hps_io_usb1_inst_D0
+			peripheral_hps_io_usb1_inst_D1      : inout std_logic                     := 'X';             -- hps_io_usb1_inst_D1
+			peripheral_hps_io_usb1_inst_D2      : inout std_logic                     := 'X';             -- hps_io_usb1_inst_D2
+			peripheral_hps_io_usb1_inst_D3      : inout std_logic                     := 'X';             -- hps_io_usb1_inst_D3
+			peripheral_hps_io_usb1_inst_D4      : inout std_logic                     := 'X';             -- hps_io_usb1_inst_D4
+			peripheral_hps_io_usb1_inst_D5      : inout std_logic                     := 'X';             -- hps_io_usb1_inst_D5
+			peripheral_hps_io_usb1_inst_D6      : inout std_logic                     := 'X';             -- hps_io_usb1_inst_D6
+			peripheral_hps_io_usb1_inst_D7      : inout std_logic                     := 'X';             -- hps_io_usb1_inst_D7
+			peripheral_hps_io_usb1_inst_CLK     : in    std_logic                     := 'X';             -- hps_io_usb1_inst_CLK
+			peripheral_hps_io_usb1_inst_STP     : out   std_logic;                                        -- hps_io_usb1_inst_STP
+			peripheral_hps_io_usb1_inst_DIR     : in    std_logic                     := 'X';             -- hps_io_usb1_inst_DIR
+			peripheral_hps_io_usb1_inst_NXT     : in    std_logic                     := 'X';             -- hps_io_usb1_inst_NXT
+			peripheral_hps_io_uart0_inst_RX     : in    std_logic                     := 'X';             -- hps_io_uart0_inst_RX
+			peripheral_hps_io_uart0_inst_TX     : out   std_logic;                                        -- hps_io_uart0_inst_TX
+			peripheral_hps_io_i2c0_inst_SDA     : inout std_logic                     := 'X';             -- hps_io_i2c0_inst_SDA
+			peripheral_hps_io_i2c0_inst_SCL     : inout std_logic                     := 'X';             -- hps_io_i2c0_inst_SCL
+			peripheral_hps_io_gpio_inst_GPIO53  : inout std_logic                     := 'X';             -- hps_io_gpio_inst_GPIO53
+			reset_50_reset_n                    : in    std_logic                     := 'X'              -- reset_n
+		);
+	end component system;
+
