@@ -178,7 +178,7 @@ int main(int argc, char **argv) {
 
 
 void setupDataAndModels(){
-    const char* filename = "first_image_mnist.bmp";
+    const char* filename = "bw_image.bmp";
     int width = 0;
     int height = 0;
 
@@ -368,7 +368,10 @@ void processTiles_weightStatinary(int numNeurons,
     printf("in the weight stationary function\n");
 
     cl_int err;
-    int weightsStartIndex = tileIndex * inputTileSize; 
+    int weightsPerTile = numNeurons * inputTileSize;
+    //int weightsStartIndex = tileIndex * inputTileSize; 
+
+
 
 
     int outputNeuronsTileSize = 10;
@@ -405,14 +408,27 @@ void processTiles_weightStatinary(int numNeurons,
         //#TODO : set remaining kernel arguments
     #endif
 
+    for (int tileIndex = 0; tileIndex < numTiles; ++tileIndex) {
+        
+        int weightsStartIndex = tileIndex * inputTileSize; 
+        std::vector<float> temp_wts;
+        temp_wts.resize(numNeurons * inputTileSize);
+        loadWeights(weightsStartIndex,numNeurons,inputTileSize,inputSize,weights,temp_wts);
+
+        std::vector<float> inputSlice(std::next(inputs.begin(), weightsStartIndex), std::next(inputs.begin(), weightsStartIndex+inputTileSize));
+
+    err = clEnqueueWriteBuffer(queue, inputTileBuffer, CL_TRUE, 0, weightsPerTile * sizeof(float), &inputs[weightsStartIndex], 0, NULL, NULL);
+    err = clEnqueueWriteBuffer(queue, weightsTileBuffer, CL_TRUE, 0, weightsPerTile * sizeof(float), &hidden_layer1_weights[weightsStartIndex], 0, NULL, NULL);
+
+    }
+
 
     //#TODO: similar to weightstationary_cpu code implemnt the same logic with inner loop taken care by the parallel kernes
 
     //For each kernel launch you write data to the buffers using a command similar to the following 
     // err = clEnqueueWriteBuffer(queue, weightsTileBuffer, CL_TRUE, 0, weightsPerTile * sizeof(float), &hidden_layer1_weights[weightsStartIndex], 0, NULL, NULL);
     
-    err = clEnqueueWriteBuffer(queue, inputTileBuffer, CL_TRUE, 0, weightsPerTile * sizeof(float), &inputs[weightsStartIndex], 0, NULL, NULL);
-    err = clEnqueueWriteBuffer(queue, weightsTileBuffer, CL_TRUE, 0, weightsPerTile * sizeof(float), &hidden_layer1_weights[weightsStartIndex], 0, NULL, NULL);
+    
 
 
     //#TODO: After writing buffers to each kernel launch kernel using the follwoing code
@@ -427,12 +443,14 @@ void processTiles_weightStatinary(int numNeurons,
     err = clEnqueueNDRangeKernel(queue, kernel, 0, NULL, global_work_size, local_work_size, 1, NULL, NULL);
 
     // OpenCL kernels running on FPGA are not synchornous. You will synchronize your computations by waiting till the queue is finished by the following code    
-    clFinish(queue);    
+    clFinish(queue);   
     
-    err = clEnqueueReadBuffer(queue, outputBuffer, CL_TRUE, 0,  weightsPerTile * sizeof(float), outputBuffer, 0, NULL, NULL); //Size
+    vector<float> hostOutput(weightsPerTile, 0.0f);
+    
+    err = clEnqueueReadBuffer(queue, outputBuffer, CL_TRUE, 0,  weightsPerTile * sizeof(float), hostOutput.data(), 0, NULL, NULL); //Size
 
     for(int i=0;i<numNeurons;i++){
-        outputs[i] += outputBuffer[i];
+        outputs[i] += hostOutput[i];
     } 
 
     #if FPGA == 1
@@ -479,7 +497,7 @@ void run() {
 
         output_layer_out.resize(numNeurons);
 
-        processTiles_weightStatinary(numNeurons,
+    processTiles_weightStatinary(numNeurons,
         numNeurons, // Size of the input array
         inputTileSize,  //[SAME AS INPUT?] Tile size of the Input vector          
         output_layer_weights, // Weights array
@@ -488,8 +506,6 @@ void run() {
         output_layer_out  // outputs array);
         );
         log_softmax(output_layer_out);
-
-
     //#TODO: similar to connecting computing each layer and connecting them in CPU code, implement same logic here but calling the FPGA functions
 }
 #endif

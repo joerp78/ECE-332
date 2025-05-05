@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdint.h>
 #include <fstream>
 #include <iostream>
 #include <vector>
@@ -91,6 +90,60 @@ void saveImage(const char* filename, unsigned char data[320][240], int width, in
 
     of.close();
 }
+
+
+
+#define CROP_W 100
+#define CROP_H 100
+
+void updated_scaleImagePreservingAspectRatio(
+    const unsigned char *input,
+    unsigned char *output,
+    int originalWidth, int originalHeight,
+    int targetWidth, int targetHeight) {
+
+    // Safety check: ensure input is large enough
+    if (originalWidth < CROP_W || originalHeight < CROP_H) {
+        memset(output, 0, targetWidth * targetHeight);
+        return;
+    }
+
+    int x0 = (originalWidth - CROP_W) / 2;
+    int y0 = (originalHeight - CROP_H) / 2;
+
+    for (int y = 0; y < targetHeight; ++y) {
+        for (int x = 0; x < targetWidth; ++x) {
+            float gx = x * (float)(CROP_W - 1) / (targetWidth - 1);
+            float gy = y * (float)(CROP_H - 1) / (targetHeight - 1);
+            int gxi = (int)gx;
+            int gyi = (int)gy;
+
+            int xi0 = gxi + x0;
+            int yi0 = gyi + y0;
+            int xi1 = (xi0 + 1 < originalWidth)  ? xi0 + 1 : xi0;
+            int yi1 = (yi0 + 1 < originalHeight) ? yi0 + 1 : yi0;
+
+            float dx = gx - gxi;
+            float dy = gy - gyi;
+
+            float c00 = input[yi0 * originalWidth + xi0];
+            float c10 = input[yi0 * originalWidth + xi1];
+            float c01 = input[yi1 * originalWidth + xi0];
+            float c11 = input[yi1 * originalWidth + xi1];
+
+            float val = (1 - dx) * (1 - dy) * c00 +
+                        dx * (1 - dy) * c10 +
+                        (1 - dx) * dy * c01 +
+                        dx * dy * c11;
+
+            // don't invert if the test image is white digit on black background
+            output[y * targetWidth + x] = (unsigned char)(val);
+            // Invert for MNIST-style: white digit on black background
+            //output[y * targetWidth + x] = 255 - (unsigned char)(val);
+        }
+    }
+}
+
 
 
 void scaleImagePreservingAspectRatio(
@@ -270,7 +323,7 @@ unsigned char* loadBMPGrayscale(const char* filename, int* width, int* height) {
     return data;
 }
 
-/*
+
 unsigned char* loadBMPGrayscale24bit(const char* filename, int* width, int* height) {
     std::ifstream file(filename, std::ios::binary);
     if (!file.is_open()) {
@@ -412,4 +465,3 @@ unsigned char* loadBMP(const char* filename, int* width, int* height) {
     file.close();
     return data;
 }
-*/
