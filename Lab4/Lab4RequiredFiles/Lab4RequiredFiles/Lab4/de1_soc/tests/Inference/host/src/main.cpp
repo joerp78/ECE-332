@@ -379,8 +379,8 @@ void processTiles_weightStatinary(int numNeurons,
 
     #if FPGA == 1
         weightsTileBuffer = clCreateBuffer(context, CL_MEM_READ_ONLY, currentTileSize * outputNeuronsTileSize * sizeof(float), NULL, &err);
-        inputTileBuffer =  clCreateBuffer(context, CL_MEM_READ_ONLY, currentTileSize * outputNeuronsTileSize * sizeof(float), NULL, &err); //check size: inputTileSize * outputNeuronsTileSize * sizeof(float)
-        outputBuffer = clCreateBuffer(context, CL_MEM_READ_ONLY, currentTileSize * outputNeuronsTileSize * sizeof(float), NULL, &err); //check size: currentTileSize * outputNeuronsTileSize * sizeof(float)
+        inputTileBuffer =  clCreateBuffer(context, CL_MEM_READ_ONLY, currentTileSize * sizeof(float), NULL, &err); //check size: inputTileSize * outputNeuronsTileSize * sizeof(float)
+        outputBuffer = clCreateBuffer(context, CL_MEM_READ_WRITE, numNeurons * sizeof(float), NULL, &err); //check size: currentTileSize * outputNeuronsTileSize * sizeof(float)
         //#TODO : create remaining required buffers
 
         if(err != CL_SUCCESS){
@@ -402,8 +402,8 @@ void processTiles_weightStatinary(int numNeurons,
     #if FPGA == 1    
         clSetKernelArg(kernel, 0, sizeof(cl_mem), (void*)&inputTileBuffer);
         clSetKernelArg(kernel, 1, sizeof(cl_mem), (void*)&weightsTileBuffer);
-        clSetKernelArg(kernel, 2, sizeof(int), &inputTileSize);
-        clSetKernelArg(kernel, 3, sizeof(int), &outputNeuronsTileSize);
+        clSetKernelArg(kernel, 2, sizeof(int), (void*)&inputTileSize);
+        clSetKernelArg(kernel, 3, sizeof(int), (void*)&outputNeuronsTileSize);
         clSetKernelArg(kernel, 4, sizeof(cl_mem), (void*)&outputBuffer);
         //#TODO : set remaining kernel arguments
     #endif
@@ -421,7 +421,7 @@ void processTiles_weightStatinary(int numNeurons,
             int offset = i * inputSize + inputOffset;
             size_t buffOffsett = i * inputTileSize * sizeof(float); 
 
-            err = clEnqueueWriteBuffer(queue, weightsTileBuffer, CL_TRUE, buffOffsett, inputTileSize * sizeof(float), &hidden_layer1_weights[offset], 0, NULL, NULL);
+            err = clEnqueueWriteBuffer(queue, weightsTileBuffer, CL_TRUE, buffOffsett, inputTileSize * sizeof(float), &weights[offset], 0, NULL, NULL);
 
         }
 

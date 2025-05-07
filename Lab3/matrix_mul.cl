@@ -12,6 +12,6 @@ __kernel void matrixMul(
         for (int i = 0; i < input_tile_size; i++) {
             result += input_tile[i] * weights_tile[neuron_id * input_tile_size + i];
         }
-        output_tile[neuron_id] = result;
+        output_tile[neuron_id] += result;
     }
 }
