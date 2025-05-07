@@ -178,14 +178,23 @@ int main(int argc, char **argv) {
 
 
 void setupDataAndModels(){
-    const char* filename = "bw_image.bmp";
+    const char* filename = "9.bmp";
     int width = 0;
     int height = 0;
 
-    unsigned char* pre_image_data = loadBMPGrayscale(filename, &width, &height);
+    unsigned char* pre_image_data = loadBMPGrayscale24bit(filename, &width, &height);
+    if (!pre_image_data) {
+        std::cerr << "Error: cannot load 24-bit BMP as grayscale\n";
+        std::exit(1);
+      }
     flipImageVertically(pre_image_data, width, height);
 
     normalizeImage(pre_image_data, width*height, image_data);
+
+    if (image_data.empty()) {
+        std::cerr << "Error: normalized image is empty\n";
+        std::exit(1);
+      }
     
     printf("done loading image:%d\n",width*height);
 
@@ -501,9 +510,22 @@ void run() {
         image_data,  // inputs array 
         hidden_layer1_out  // outputs array);
         );
+
+        std::cout << "Output of fc1 (before ReLU): ";
+        for(int i = 0; i < 10; i++) {
+            std::cout << hidden_layer1_out[i] << " ";
+        }
+        std::cout << std::endl;
+
         relu(hidden_layer1_out);
 
-        output_layer_out.resize(numNeurons);
+        std::cout << "Output of fc1 (after ReLU): ";
+        for(int i = 0; i < 10; i++) {
+            std::cout << hidden_layer1_out[i] << " ";
+        }
+        std::cout << std::endl;
+
+        //output_layer_out.resize(numNeurons);
 
     processTiles_weightStatinary(
         numNeurons,
@@ -514,8 +536,24 @@ void run() {
         hidden_layer1_out,  // inputs array 
         output_layer_out  // outputs array);
         );
+
+        std::cout << "Output of fc2 (before LogSoftmax): ";
+        for(int i = 0; i < 10; i++) {
+            std::cout << output_layer_out[i] << " ";
+        }
+        std::cout << std::endl;
+
         log_softmax(output_layer_out);
     //#TODO: similar to connecting computing each layer and connecting them in CPU code, implement same logic here but calling the FPGA functions
+
+    std::cout << "Output of fc2 (after LogSoftmax): ";
+    for(int i = 0; i < 10; i++) {
+        std::cout << output_layer_out[i] << " ";
+    }
+    std::cout << std::endl;
+
+    int label = getMaxIn(output_layer_out);
+    printf("Predicted label: %d\n", label);
 }
 #endif
 
