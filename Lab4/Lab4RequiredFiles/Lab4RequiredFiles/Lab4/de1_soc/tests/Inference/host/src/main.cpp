@@ -379,7 +379,7 @@ void processTiles_weightStatinary(int numNeurons,
 
     #if FPGA == 1
         weightsTileBuffer = clCreateBuffer(context, CL_MEM_READ_ONLY, currentTileSize * outputNeuronsTileSize * sizeof(float), NULL, &err);
-        inputTileBuffer =  clCreateBuffer(context, CL_MEM_READ_ONLY, inputTileSize * outputNeuronsTileSize * sizeof(float), NULL, &err); //check size: inputTileSize * outputNeuronsTileSize * sizeof(float)
+        inputTileBuffer =  clCreateBuffer(context, CL_MEM_READ_ONLY, currentTileSize * outputNeuronsTileSize * sizeof(float), NULL, &err); //check size: inputTileSize * outputNeuronsTileSize * sizeof(float)
         outputBuffer = clCreateBuffer(context, CL_MEM_READ_ONLY, currentTileSize * outputNeuronsTileSize * sizeof(float), NULL, &err); //check size: currentTileSize * outputNeuronsTileSize * sizeof(float)
         //#TODO : create remaining required buffers
 
@@ -408,19 +408,24 @@ void processTiles_weightStatinary(int numNeurons,
         //#TODO : set remaining kernel arguments
     #endif
 
-    for (int tileIndex = 0; tileIndex < numTiles; ++tileIndex) {
-        
-        int weightsStartIndex = tileIndex * inputTileSize; 
-        std::vector<float> temp_wts;
-        temp_wts.resize(numNeurons * inputTileSize);
-        loadWeights(weightsStartIndex,numNeurons,inputTileSize,inputSize,weights,temp_wts);
+    int numTiles = inputSize / inputTileSize; 
+    for (int tileIndex = 0; tileIndex < numTiles; ++tileIndex) {        
+        //int weightsStartIndex = tileIndex * inputTileSize; 
+        //std::vector<float> temp_wts;
+        //temp_wts.resize(numNeurons * inputTileSize);
+        //loadWeights(weightsStartIndex,numNeurons,inputTileSize,inputSize,weights,temp_wts);
+        //std::vector<float> inputSlice(std::next(inputs.begin(), weightsStartIndex), std::next(inputs.begin(), weightsStartIndex+inputTileSize));
+        int inputOffset = tileIndex * inputTileSize; 
 
-        std::vector<float> inputSlice(std::next(inputs.begin(), weightsStartIndex), std::next(inputs.begin(), weightsStartIndex+inputTileSize));
+        for (int i = 0; i < outputNeuronsTileSize; i++){
+            int offset = i * inputSize + inputOffset;
+            size_t buffOffsett = i * inputTileSize * sizeof(float); 
 
-    err = clEnqueueWriteBuffer(queue, inputTileBuffer, CL_TRUE, 0, weightsPerTile * sizeof(float), &inputs[weightsStartIndex], 0, NULL, NULL);
-    err = clEnqueueWriteBuffer(queue, weightsTileBuffer, CL_TRUE, 0, weightsPerTile * sizeof(float), &hidden_layer1_weights[weightsStartIndex], 0, NULL, NULL);
+            err = clEnqueueWriteBuffer(queue, weightsTileBuffer, CL_TRUE, buffOffsett, inputTileSize * sizeof(float), &hidden_layer1_weights[offset], 0, NULL, NULL);
 
-    }
+        }
+
+        err = clEnqueueWriteBuffer(queue, inputTileBuffer, CL_TRUE, 0, inputTileSize * sizeof(float), &inputs[inputOffset], 0, NULL, NULL);
 
 
     //#TODO: similar to weightstationary_cpu code implemnt the same logic with inner loop taken care by the parallel kernes
@@ -440,17 +445,18 @@ void processTiles_weightStatinary(int numNeurons,
 
     // assuming you implemented a 1D kernel in OpenCL, if you implemented 2D please discuss with TA    
 
-    err = clEnqueueNDRangeKernel(queue, kernel, 0, NULL, global_work_size, local_work_size, 1, NULL, NULL);
+    err = clEnqueueNDRangeKernel(queue, kernel, 1, NULL, global_work_size, local_work_size, 0, NULL, NULL);
 
     // OpenCL kernels running on FPGA are not synchornous. You will synchronize your computations by waiting till the queue is finished by the following code    
     clFinish(queue);   
+
+    }
     
-    vector<float> hostOutput(weightsPerTile, 0.0f);
     
-    err = clEnqueueReadBuffer(queue, outputBuffer, CL_TRUE, 0,  weightsPerTile * sizeof(float), hostOutput.data(), 0, NULL, NULL); //Size
+    err = clEnqueueReadBuffer(queue, outputBuffer, CL_TRUE, 0,  numNeurons * sizeof(float), (void*)&outputs[0], 0, NULL, NULL); //Size
 
     for(int i=0;i<numNeurons;i++){
-        outputs[i] += hostOutput[i];
+        outputs[i] += biases[i];
     } 
 
     #if FPGA == 1
@@ -483,9 +489,11 @@ void run() {
 
     printf("started running on fpga\n");
 
-    hidden_layer1_out.resize(numNeurons * inputTileSize);
+    hidden_layer1_out.resize(numNeurons);
+    output_layer_out.resize(numNeurons);
 
-    processTiles_weightStatinary(numNeurons,
+    processTiles_weightStatinary(
+        numNeurons,
         inputSize, // Size of the input array
         inputTileSize,  // Tile size of the Input vector          
         hidden_layer1_weights, // Weights array
@@ -497,9 +505,10 @@ void run() {
 
         output_layer_out.resize(numNeurons);
 
-    processTiles_weightStatinary(numNeurons,
+    processTiles_weightStatinary(
+        numNeurons,
         numNeurons, // Size of the input array
-        inputTileSize,  //[SAME AS INPUT?] Tile size of the Input vector          
+        numNeurons,  //[SAME AS INPUT?] Tile size of the Input vector          
         output_layer_weights, // Weights array
         output_layer_biases,  // biases array
         hidden_layer1_out,  // inputs array 
